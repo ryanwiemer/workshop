@@ -26,30 +26,7 @@ const IndexPage = ({data}) =>  {
 
 export const query = graphql`
   query HomeQuery {
-    allContentfulProject(limit: 1000, sort: {fields: [date], order: DESC}) {
-      edges {
-        node {
-          title
-          slug
-          id
-          date
-          cover {
-            title
-            sizes(maxWidth: 1800) {
-              ...GatsbyContentfulSizes_withWebp_noBase64
-            }
-          }
-        }
-      }
-    }
-    contentfulAbout {
-      cover {
-       title
-       sizes(maxWidth: 1800) {
-         ...GatsbyContentfulSizes_withWebp_noBase64
-       }
-      }
-    }
+
   }
 `
 

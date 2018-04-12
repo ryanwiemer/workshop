@@ -1,8 +1,5 @@
 
-# [ryanwiemer.com](https://www.ryanwiemer.com)
-Digital portfolio for Ryan Wiemer.
-
-![screenshot](screenshot.jpg "screenshot")
+# [workshop - URL TBD](https://www.knw.io)
 
 **NOTE:** This repo is mostly just for me. If you are interested in a starter template for Gatsby, Contentful and Netlify checkout: https://github.com/ryanwiemer/gatsby-starter-gcn.
 
