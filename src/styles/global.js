@@ -66,8 +66,8 @@ injectGlobal`
 
   /* Site Specific Globals */
   body {
-    background: #121212;
-    color: white;
+    background: white;
+    color: black;
   }
 
   img {
@@ -77,8 +77,8 @@ injectGlobal`
   }
 
   a {
-    text-decoration: none;
-    color: white;
+    text-decoration: underline;
+    color: black;
   }
 
   .nprogress-busy {

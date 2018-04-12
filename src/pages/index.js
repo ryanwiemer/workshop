@@ -5,29 +5,45 @@ import Img from 'gatsby-image'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import Container from  '../components/Container'
+import Hero from  '../components/Hero'
 
 const IndexPage = ({data}) =>  {
 
-  const projects = data.allContentfulProject.edges;
-  const about = data.contentfulAbout;
+  const {
+    title,
+    id,
+    cover,
+  } = data.contentfulSection;
 
   return (
     <div>
-      <Helmet>
-        <meta property="og:image" content={about.cover.sizes.src} />
-      </Helmet>
+
+      <Hero
+        image={cover}
+        title="test"
+        height="100vh"
+      />
+
       <Container>
-        <Work projects={projects}/>
+
+
+
+
+
+
+
       </Container>
-      <Footer/>
     </div>
   )
 }
 
 export const query = graphql`
-  query HomeQuery {
-
+  query Index {
+    contentfulPage {
+      title
+  
   }
 `
+
 
 export default IndexPage
