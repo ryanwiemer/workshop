@@ -13,7 +13,6 @@ const BgImg = styled(Img)`
     top: 0;
     left: 0;
     width: 100%;
-    z-index: -1;
     min-height: 300px;
     height: auto;
     @media (min-width: ${props => props.theme.responsive.small}) {
@@ -46,6 +45,15 @@ const Hero = (props) => {
     <Wrapper>
       <BgImg sizes={props.image.sizes} height={props.height} position={props.position} alt={props.image.title} title={props.image.title} backgroundColor={"#EEEEEE"} />
       {props.title && (<Title>{props.title}</Title>)}
+
+      <ul>
+        {props.links && (
+          props.links.map((link) => (
+            <li key={link.id}><a href={`#${link.slug}`}>{link.title}</a></li>
+          ))
+        )}
+      </ul>
+
     </Wrapper>
   )
 }
