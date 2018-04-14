@@ -23,36 +23,78 @@ const BgImg = styled(Img)`
       object-position: ${props => props.position || '50% 50%'} !important;
     }
   }
+  &:before {
+    content: '';
+    background: rgba(0,0,0,.25);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+  }
 `
 
-const Title = styled.h2`
-  text-transform: capitalize;
-  font-weight: bold;
+const Logo = styled.div`
+  z-index: 2;
+  width: 50%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
-  z-index: 2;
-  font-size: 2em;
+`
+
+const LinkList = styled.ul`
+  z-index: 99;
+  position: absolute;
+  bottom: 2em;
+  left: 50%;
+  transform: translate(-50%, -50%);
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
-    font-size: 3em;
+    bottom: 2em;
+  }
+  li {
+    display: inline-block;
+    margin: 0 .5em;
   }
 `
+
+const ScrollLink = styled.button`
+  text-decoration: underline;
+  color: white;
+  font-weight: bold;
+
+  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+
+  }
+`
+
+
+const scrollTo = (e) => {
+  document.querySelector('.' + e.target.id ).scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  });
+}
 
 const Hero = (props) => {
   return (
     <Wrapper>
       <BgImg sizes={props.image.sizes} height={props.height} position={props.position} alt={props.image.title} title={props.image.title} backgroundColor={"#EEEEEE"} />
-      {props.title && (<Title>{props.title}</Title>)}
 
-      <ul>
+      {props.logo && (<Logo><Img sizes={props.logo.sizes} alt={props.logo.title} title={props.logo.title} /></Logo>)}
+
+      <LinkList>
         {props.links && (
           props.links.map((link) => (
-            <li key={link.id}><a href={`#${link.slug}`}>{link.title}</a></li>
+            <li key={link.id}>
+              <ScrollLink onClick={scrollTo} id={link.slug}>{link.title}</ScrollLink>
+            </li>
           ))
         )}
-      </ul>
+      </LinkList>
 
     </Wrapper>
   )

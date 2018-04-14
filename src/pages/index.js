@@ -11,12 +11,11 @@ const Title = styled.h1`
   font-size: 1.5em;
    margin: 0 0 .5rem 0;
   font-weight: bold
+  display: none;
 `;
 
 const Section = styled.section`
-  background: #EEE;
-  padding: 1em;
-  margin: 0 0 1rem 0;
+  margin: 0 0 2rem 0;
 `;
 
 const IndexPage = ({data}) =>  {
@@ -25,34 +24,38 @@ const IndexPage = ({data}) =>  {
 
   return (
     <div>
-      <Container>
-        {sections.map(({node: section}) => (
-          <Section key={section.id} id={section.slug}>
-            <Title>{section.title}</Title>
-            <Modules modules={section.modules} />
-          </Section>
-        ))}
-      </Container>
+      {sections.map(({node: section}) => (
+        <Section key={section.id} className={section.slug}>
+          <Title>{section.title}</Title>
+          <Modules modules={section.modules} />
+        </Section>
+      ))}
     </div>
   )
 }
 
 export const query = graphql`
 query Index {
-  allContentfulSection {
+  allContentfulSection(sort: { fields: [sortOrder], order: ASC }) {
     edges {
       node {
         id
         title
         slug
+        sortOrder
         modules {
           __typename
           ... on ContentfulHero {
             title
-            subtitle
             cover {
               title
               sizes(maxWidth: 1800) {
+                ...GatsbyContentfulSizes_withWebp_noBase64
+              }
+            }
+            logo {
+              title
+              sizes(maxWidth: 1000) {
                 ...GatsbyContentfulSizes_withWebp_noBase64
               }
             }
@@ -64,6 +67,14 @@ query Index {
           }
           ... on ContentfulGallery {
             title
+          }
+          ... on ContentfulBodyText {
+            title
+            text {
+              childMarkdownRemark {
+                html
+              }
+            }
           }
         }
       }

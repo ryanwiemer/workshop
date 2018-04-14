@@ -81,6 +81,16 @@ injectGlobal`
     color: black;
   }
 
+  button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+  }
+
   .nprogress-busy {
     cursor: wait;
   }
