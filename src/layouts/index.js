@@ -16,7 +16,7 @@ const TemplateWrapper = ({ children }) => (
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
         <meta name="description" content="Workshop - DESCRIPTION" />
-        <meta property="og:title" content="Ryan Wiemer" />
+        <meta property="og:title" content="Workshop" />
         <meta property="og:description" content="Workshop - DESCRIPTION" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
