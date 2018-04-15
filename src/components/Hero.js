@@ -4,7 +4,6 @@ import Img from 'gatsby-image'
 
 const Wrapper = styled.div`
   position: relative;
-  margin: 0 0 2rem;
 `
 
 const BgImg = styled(Img)`
@@ -17,6 +16,7 @@ const BgImg = styled(Img)`
     height: auto;
     @media (min-width: ${props => props.theme.responsive.small}) {
       height: ${props => props.height || 'auto'};
+      min-height: 400px;
     }
     & > img {
       object-fit: ${props => props.fit || 'cover'} !important;
@@ -39,11 +39,16 @@ const BgImg = styled(Img)`
 
 const Logo = styled.div`
   z-index: 2;
-  width: 50%;
+  width: 40%;
+
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+    width: 50%;
+    max-width: 400px;
+  }
 `
 
 const LinkList = styled.ul`
@@ -65,9 +70,10 @@ const ScrollLink = styled.button`
   text-decoration: underline;
   color: white;
   font-weight: bold;
-
-  @media screen and (min-width: ${props => props.theme.responsive.small}) {
-
+  opacity: 1;
+  transition: .3s;
+  &:hover {
+    opacity: .75;
   }
 `
 
@@ -94,6 +100,9 @@ const Hero = (props) => {
             </li>
           ))
         )}
+        <li>
+          <ScrollLink onClick={scrollTo} id="sign-up">Sign Up</ScrollLink>
+        </li>
       </LinkList>
 
     </Wrapper>

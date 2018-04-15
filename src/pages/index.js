@@ -6,6 +6,7 @@ import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import Container from  '../components/Container'
 import Modules from  '../components/Modules'
+import SignUp from  '../components/SignUp'
 
 const Title = styled.h1`
   font-size: 1.5em;
@@ -15,7 +16,7 @@ const Title = styled.h1`
 `;
 
 const Section = styled.section`
-  margin: 0 0 2rem 0;
+  margin: 0 0 0 0;
 `;
 
 const IndexPage = ({data}) =>  {
@@ -30,6 +31,10 @@ const IndexPage = ({data}) =>  {
           <Modules modules={section.modules} />
         </Section>
       ))}
+      <Section className="sign-up">
+        <Title>Sign Up</Title>
+
+      </Section>
     </div>
   )
 }
@@ -65,10 +70,35 @@ query Index {
               slug
             }
           }
-          ... on ContentfulGallery {
+          ... on ContentfulBiography {
             title
+            profileImage {
+              title
+              sizes(maxWidth: 1800) {
+                ...GatsbyContentfulSizes_withWebp_noBase64
+              }
+            }
+            text {
+              childMarkdownRemark {
+                html
+              }
+            }
+            filmStrip {
+              title
+              sizes(maxWidth: 1800) {
+                ...GatsbyContentfulSizes_withWebp_noBase64
+              }
+            }
           }
           ... on ContentfulBodyText {
+            title
+            text {
+              childMarkdownRemark {
+                html
+              }
+            }
+          }
+          ... on ContentfulIntroText {
             title
             text {
               childMarkdownRemark {
