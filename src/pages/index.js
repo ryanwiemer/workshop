@@ -16,7 +16,6 @@ const Title = styled.h1`
 `;
 
 const Section = styled.section`
-  margin: 0 0 0 0;
 `;
 
 const IndexPage = ({data}) =>  {
@@ -72,6 +71,7 @@ query Index {
           }
           ... on ContentfulBiography {
             title
+            switch
             profileImage {
               title
               sizes(maxWidth: 1800) {

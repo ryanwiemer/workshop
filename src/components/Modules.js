@@ -29,6 +29,7 @@ const Modules = (props) => {
               profileImage={module.profileImage}
               text={module.text}
               filmStrip={module.filmStrip}
+              switch={module.switch}
             />
 
           )}
@@ -48,7 +49,7 @@ const Modules = (props) => {
 
         </li>
        ))}
-    </ul>
+     </ul>
   )
 }
 

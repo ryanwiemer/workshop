@@ -1,51 +1,69 @@
 import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
+import ScrollMagic from 'ScrollMagic';
 
 const Wrapper = styled.div`
   position: relative;
-  max-width: ${props => props.theme.sizes.maxWidth};
-  margin: 0 auto 6rem;
-  padding: 0 1.5rem;
+  margin: 0 auto;
+  padding: 4em 0 0 0;
   height: 100%;
-  @media screen and (min-width: ${props => props.theme.responsive.small}) {
-    padding: 0 3rem;
-  }
+  width: 100%;
+  overflow: hidden;
 `;
 
 
-const About = styled.div`
-  margin: 0 0 2rem 0;
-  padding: 2em 0 0 0;
+const About = styled.figure`
+  max-width: ${props => props.theme.sizes.maxWidth};
+  margin: 0 auto 1em;
+  padding: 2em;
   width: 100%;
-  display: flex;
-  flex: row wrap;
-  justify-content: space-between;
+  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+    display: flex;
+    flex: row wrap;
+    justify-content: space-between;
+    flex-direction: ${props => props.switch ? 'row-reverse' : 'row'}
+  }
 `;
 
 
 const Profile = styled.div`
+  border-radius: 2px;
   margin: 0 0 2rem 0;
-  width: 49%;
+  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+    width: 48%;
+    margin: 0;
+  }
+  img {
+    border: 1em solid ${props => props.theme.colors.secondary};
+  }
 `;
 
 const Text = styled.div`
   margin: 0 0 2rem 0;
-  width: 49%;
+  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+    width: 48%;
+    margin: 0;
+  }
   p {
     line-height: 1.5;
   }
+
 `;
 
 const FilmStrip = styled.ul`
   display: flex;
-  flex-flow: row wrap;
+  width: 200%;
   li {
-    width: 25%;
+    margin: 0 0 0 .5em;
+    height: 100%;
+    width: 100%;
+    .gatsby-image-wrapper {
+      height: 0;
+      padding-bottom: 100%;
+    }
   }
 `;
-
-
 
 
 const Biography = (props) => {
@@ -54,7 +72,7 @@ const Biography = (props) => {
 
       <About>
         <Profile>
-          <Img sizes={props.profileImage.sizes} alt={props.profileImage.title} title={props.profileImage.title} />
+          <Img sizes={props.profileImage.sizes} alt={props.profileImage.title} title={props.profileImage.title} backgroundColor={'#eeeeee'}/>
         </Profile>
         <Text dangerouslySetInnerHTML={{ __html: props.text.childMarkdownRemark.html }}/>
       </About>
@@ -63,7 +81,7 @@ const Biography = (props) => {
         {props.filmStrip && (
           props.filmStrip.map((photo, index) => (
           <li key={index}>
-            <Img sizes={photo.sizes} alt={photo.title} title={photo.title} />
+            <Img sizes={photo.sizes} alt={photo.title} title={photo.title} backgroundColor={'#eeeeee'}/>
           </li>
           ))
         )}
