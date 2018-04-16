@@ -26,6 +26,8 @@ const Modules = (props) => {
           {module.__typename == "ContentfulBiography" && (
 
             <Biography
+              title={module.title}
+              portfolio={module.portfolio}
               profileImage={module.profileImage}
               text={module.text}
               filmStrip={module.filmStrip}

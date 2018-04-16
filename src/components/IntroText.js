@@ -3,6 +3,8 @@ import styled from 'styled-components'
 
 const Wrapper = styled.div`
   background: ${props => props.theme.colors.base};
+  background-image: url('../images/cartographer.png');
+  background-repeat: repeat repeat;
   position: relative;
   margin: 0 auto;
   width: 100%;
@@ -20,6 +22,7 @@ const Text = styled.div`
   margin: 0 auto;
   color: white;
   max-width: 750px;
+  font-family: 'PT Serif', serif;
   p {
     font-size: 1.25em;
     line-height: 1.5;

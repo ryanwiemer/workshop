@@ -8,14 +8,24 @@ import Container from  '../components/Container'
 import Modules from  '../components/Modules'
 import SignUp from  '../components/SignUp'
 
-const Title = styled.h1`
-  font-size: 1.5em;
-   margin: 0 0 .5rem 0;
-  font-weight: bold
-  display: none;
+
+const Wrapper = styled.div`
+ {$title} {
+  &:nth-last-of-type(2n){
+    color: red;
+  }
+ }
 `;
 
 const Section = styled.section`
+  position: relative;
+`;
+
+const Title = styled.h1`
+  text-align: center;
+  font-size: 3em;
+  padding: 4rem 0 2rem 0;
+  font-weight: bold;
 `;
 
 const IndexPage = ({data}) =>  {
@@ -23,18 +33,17 @@ const IndexPage = ({data}) =>  {
   const sections = data.allContentfulSection.edges;
 
   return (
-    <div>
+    <Wrapper>
       {sections.map(({node: section}) => (
         <Section key={section.id} className={section.slug}>
-          <Title>{section.title}</Title>
+          {section.heading && (<Title>{section.heading}</Title>)}
           <Modules modules={section.modules} />
         </Section>
       ))}
       <Section className="sign-up">
         <Title>Sign Up</Title>
-
       </Section>
-    </div>
+    </Wrapper>
   )
 }
 
@@ -47,6 +56,7 @@ query Index {
         title
         slug
         sortOrder
+        heading
         modules {
           __typename
           ... on ContentfulHero {
@@ -71,6 +81,7 @@ query Index {
           }
           ... on ContentfulBiography {
             title
+            portfolio
             switch
             profileImage {
               title
