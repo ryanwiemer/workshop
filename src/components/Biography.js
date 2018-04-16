@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
-import ScrollMagic from 'ScrollMagic';
 
 const Wrapper = styled.div`
   position: relative;
