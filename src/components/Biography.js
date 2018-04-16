@@ -82,6 +82,7 @@ const FilmStrip = styled.ul`
   display: flex;
   flex-flow: row wrap;
   width: 100%;
+  display: none;
   li {
     height: 100%;
     width: 25%;

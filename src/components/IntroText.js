@@ -3,13 +3,13 @@ import styled from 'styled-components'
 
 const Wrapper = styled.div`
   background: ${props => props.theme.colors.base};
-  background-image: url('../images/cartographer.png');
+  background-image: url('https://www.toptal.com/designers/subtlepatterns/patterns/cartographer.png');
   background-repeat: repeat repeat;
   position: relative;
   margin: 0 auto;
   width: 100%;
   padding: 2em 1em;
-  min-height: 75vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
