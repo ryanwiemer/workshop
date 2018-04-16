@@ -2,9 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
-  background: ${props => props.theme.colors.base};
-  background-image: url('https://www.toptal.com/designers/subtlepatterns/patterns/cartographer.png');
-  background-repeat: repeat repeat;
+  background: #151611;
   position: relative;
   margin: 0 auto;
   width: 100%;
@@ -23,6 +21,7 @@ const Text = styled.div`
   color: white;
   max-width: 750px;
   font-family: 'PT Serif', serif;
+  z-index: 99;
   p {
     font-size: 1.25em;
     line-height: 1.5;

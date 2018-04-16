@@ -12,10 +12,11 @@ const BgImg = styled(Img)`
     top: 0;
     left: 0;
     width: 100%;
-    min-height: 300px;
+    min-height: 400px;
     height: auto;
     @media (min-width: ${props => props.theme.responsive.small}) {
       height: ${props => props.height || 'auto'};
+      height: 100vh;
       min-height: 400px;
     }
     & > img {
@@ -40,7 +41,6 @@ const BgImg = styled(Img)`
 const Logo = styled.div`
   z-index: 2;
   width: 40%;
-
   position: absolute;
   top: 50%;
   left: 50%;
@@ -52,11 +52,11 @@ const Logo = styled.div`
 `
 
 const LinkList = styled.ul`
+  width: 100%;
+  text-align: center;
   z-index: 99;
   position: absolute;
   bottom: 2em;
-  left: 50%;
-  transform: translate(-50%, -50%);
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
     bottom: 2em;
   }
