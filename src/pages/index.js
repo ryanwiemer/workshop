@@ -10,22 +10,22 @@ import SignUp from  '../components/SignUp'
 
 
 const Wrapper = styled.div`
- {$title} {
-  &:nth-last-of-type(2n){
-    color: red;
-  }
- }
 `;
 
 const Section = styled.section`
   position: relative;
 `;
 
-const Title = styled.h1`
+const Title = styled.h2`
   text-align: center;
   font-size: 3em;
   padding: 4rem 0 2rem 0;
   font-weight: bold;
+  z-index: 99;
+  position: relative;
+  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+    font-size: 7vw;
+  }
 `;
 
 const IndexPage = ({data}) =>  {
@@ -42,6 +42,7 @@ const IndexPage = ({data}) =>  {
       ))}
       <Section className="sign-up">
         <Title>Sign Up</Title>
+        <SignUp/>
       </Section>
     </Wrapper>
   )
@@ -82,6 +83,8 @@ query Index {
           ... on ContentfulBiography {
             title
             portfolio
+            instagram
+            facebook
             switch
             profileImage {
               title
@@ -94,12 +97,6 @@ query Index {
                 html
               }
             }
-            filmStrip {
-              title
-              sizes(maxWidth: 1800) {
-                ...GatsbyContentfulSizes_withWebp_noBase64
-              }
-            }
           }
           ... on ContentfulBodyText {
             title
@@ -109,8 +106,20 @@ query Index {
               }
             }
           }
+
+          ... on ContentfulPhotoGrid {
+            title
+            images {
+              title
+              sizes(maxWidth: 1800) {
+                ...GatsbyContentfulSizes_withWebp_noBase64
+              }
+            }
+          }
+
           ... on ContentfulIntroText {
             title
+            heading
             text {
               childMarkdownRemark {
                 html

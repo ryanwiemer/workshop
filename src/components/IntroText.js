@@ -2,18 +2,27 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
-  background: #151611;
+  background: ${props => props.theme.colors.base};
   position: relative;
   margin: 0 auto;
   width: 100%;
-  padding: 2em 1em;
-  min-height: 100vh;
+  padding: 4em 2em;
   display: flex;
   align-items: center;
   justify-content: center;
-  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     padding: 4em 2em;
+    min-height: 100vh;
   }
+`;
+
+const Title = styled.h2`
+  font-size: 3em;
+  margin: 0 0 2rem 0;
+  color: white;
+  font-weight: bold;
+  max-width: 1000px;
+  display: none;
 `;
 
 const Text = styled.div`
@@ -35,7 +44,10 @@ const Text = styled.div`
 const IntroText = (props) => {
   return (
     <Wrapper>
-      <Text dangerouslySetInnerHTML={{ __html: props.text.childMarkdownRemark.html }}/>
+      <div>
+        <Title>{props.title}</Title>
+        <Text dangerouslySetInnerHTML={{ __html: props.text.childMarkdownRemark.html }}/>
+      </div>
     </Wrapper>
   )
 }
