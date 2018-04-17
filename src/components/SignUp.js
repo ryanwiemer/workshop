@@ -2,10 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import 'whatwg-fetch' // Fetch Polyfill
-
+import pattern from '../images/topography.png'
 
 const Wrapper = styled.div`
-  background: url('https://www.toptal.com/designers/subtlepatterns/patterns/topography.png');
+  background: url(${pattern});
   position: relative;
   &:after {
     content: "";
@@ -13,10 +13,9 @@ const Wrapper = styled.div`
     width: 100%;
     height: 40%;
     top: 0;
-    background: linear-gradient(0deg,transparent 0,#FFF);
+    background: linear-gradient(0deg,rgba(255, 0, 0, 0) 0,#FFF);
   }
 `
-
 
 const Form = styled.form`
   max-width: 850px;
