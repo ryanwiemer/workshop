@@ -71,7 +71,7 @@ const Biography = (props) => {
       <About switch={props.switch}>
 
         <Profile>
-          <Img sizes={props.profileImage.sizes} alt={props.profileImage.title} title={props.profileImage.title} backgroundColor={'#eeeeee'}/>
+          <Img sizes={props.image.sizes} alt={props.image.title} title={props.image.title} backgroundColor={'#eeeeee'}/>
         </Profile>
 
         <Details>

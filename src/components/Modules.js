@@ -37,11 +37,11 @@ const Modules = (props) => {
 
           {module.__typename == "ContentfulBiography" && (
             <Biography
-              name={module.title}
+              name={module.name}
               portfolio={module.portfolio}
               instagram={module.instagram}
               facebook={module.facebook}
-              profileImage={module.profileImage}
+              image={module.image}
               text={module.text}
               switch={module.switch}
             />

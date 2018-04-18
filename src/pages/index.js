@@ -98,11 +98,12 @@ query Index {
           }
           ... on ContentfulBiography {
             title
+            name
             portfolio
             instagram
             facebook
             switch
-            profileImage {
+            image {
               title
               sizes(maxWidth: 1800) {
                 ...GatsbyContentfulSizes_withWebp_noBase64
