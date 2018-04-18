@@ -22,7 +22,7 @@ const TemplateWrapper = ({ children }) => (
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Workshop" />
         <meta property="og:url" content="https://www.knw.io" />
-        <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700|PT+Serif" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700|PT+Serif:400,700" rel="stylesheet"/>
       </Helmet>
       {children()}
     </div>

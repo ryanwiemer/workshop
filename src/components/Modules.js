@@ -53,7 +53,7 @@ const Modules = (props) => {
           {module.__typename == "ContentfulIntroText" && (
             <div>
             <IntroText
-              title={module.heading}
+              image={module.cover}
               text={module.text}
             />
           </div>

@@ -119,7 +119,12 @@ query Index {
 
           ... on ContentfulIntroText {
             title
-            heading
+            cover {
+              title
+              sizes(maxWidth: 1800) {
+                ...GatsbyContentfulSizes_withWebp_noBase64
+              }
+            }
             text {
               childMarkdownRemark {
                 html

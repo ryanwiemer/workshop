@@ -4,10 +4,6 @@ import Img from 'gatsby-image'
 
 const Wrapper = styled.div`
   position: relative;
-    margin: 1em;
-  @media (min-width: ${props => props.theme.responsive.medium}) {
-    margin: 1.5em;
-  }
 `
 
 const BgImg = styled(Img)`
@@ -18,7 +14,7 @@ const BgImg = styled(Img)`
     width: 100%;
     min-height: 400px;
     @media (min-width: ${props => props.theme.responsive.medium}) {
-      height: calc(100vh - 3em);
+      height: 100vh;
     }
     & > img {
       object-fit: ${props => props.fit || 'cover'} !important;

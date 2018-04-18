@@ -30,6 +30,7 @@ const Details = styled.div`
 `;
 
 const Name = styled.h2`
+  font-family: 'PT Serif', serif;
   font-weight: bold;
   display: inline-block;
   font-size: 2.5em;
@@ -38,7 +39,7 @@ const Name = styled.h2`
 
 const Text = styled.div`
   margin: 0 0 2rem 0;
-  font-family: 'PT Serif', serif;
+  font-size: 1.1em;
   p {
     line-height: 1.5;
   }
@@ -50,7 +51,7 @@ const ExternalLinks = styled.div`
     display: inline-block;
     background: ${props => props.theme.colors.secondary};
     border-radius: 2px;
-    font-size: 1em;
+    font-size: 1.1em;
     margin: 0 .5rem 0 0;
     &:first-child {
       padding: 1em;
