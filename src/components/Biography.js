@@ -75,7 +75,7 @@ const Biography = (props) => {
         </Profile>
 
         <Details>
-          <Name>{props.title}</Name>
+          <Name>{props.name}</Name>
           <Text dangerouslySetInnerHTML={{ __html: props.text.childMarkdownRemark.html }}/>
           <ExternalLinks>
             <a href={props.portfolio} target="_blank">{props.portfolio}</a>

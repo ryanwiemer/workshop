@@ -52,8 +52,6 @@ const Grid = styled.ul`
     }
   }
 
-
-
   @keyframes slide {
   from {
     transform: translateX(0);
@@ -65,10 +63,10 @@ const Grid = styled.ul`
 }
 `
 
-const PhotoGrid = (props) => {
+const FilmStrip = (props) => {
   return (
     <Wrapper>
-      <h2>{props.title}</h2>
+      <h2>{props.heading}</h2>
       <Grid>
         {props.images && (
           props.images.map((image, index) => (
@@ -82,4 +80,4 @@ const PhotoGrid = (props) => {
   )
 }
 
-export default PhotoGrid
+export default FilmStrip

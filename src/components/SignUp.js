@@ -7,6 +7,7 @@ import pattern from '../images/topography.png'
 const Wrapper = styled.div`
   background: url(${pattern});
   position: relative;
+  padding: 0 0 4rem 0;
   &:after {
     content: "";
     position: absolute;
@@ -20,7 +21,7 @@ const Wrapper = styled.div`
 const Form = styled.form`
   max-width: 850px;
   margin: 0 auto 0;
-  padding: 2em 2em 4em;
+  padding: 2em;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;

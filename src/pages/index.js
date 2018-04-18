@@ -4,10 +4,9 @@ import Link from 'gatsby-link'
 import Img from 'gatsby-image'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
-import Container from  '../components/Container'
-import Modules from  '../components/Modules'
-import SignUp from  '../components/SignUp'
-
+import Modules from '../components/Modules'
+import SignUp from '../components/SignUp'
+import Footer from '../components/Footer'
 
 const Wrapper = styled.div`
 `;
@@ -24,6 +23,7 @@ const Title = styled.h2`
   z-index: 99;
   position: relative;
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+    font-size: 5em;
     font-size: 7vw;
   }
 `;
@@ -44,6 +44,7 @@ const IndexPage = ({data}) =>  {
         <Title>Sign Up</Title>
         <SignUp/>
       </Section>
+      <Footer/>
     </Wrapper>
   )
 }
@@ -62,7 +63,7 @@ query Index {
           __typename
           ... on ContentfulHero {
             title
-            cover {
+            image {
               title
               sizes(maxWidth: 1800) {
                 ...GatsbyContentfulSizes_withWebp_noBase64
@@ -78,6 +79,21 @@ query Index {
               title
               id
               slug
+            }
+          }
+          ... on ContentfulIntro {
+            title
+            heading
+            image {
+              title
+              sizes(maxWidth: 1800) {
+                ...GatsbyContentfulSizes_withWebp_noBase64
+              }
+            }
+            text {
+              childMarkdownRemark {
+                html
+              }
             }
           }
           ... on ContentfulBiography {
@@ -98,17 +114,9 @@ query Index {
               }
             }
           }
-          ... on ContentfulBodyText {
+          ... on ContentfulFilmStrip {
             title
-            text {
-              childMarkdownRemark {
-                html
-              }
-            }
-          }
-
-          ... on ContentfulPhotoGrid {
-            title
+            heading
             images {
               title
               sizes(maxWidth: 1800) {
@@ -116,18 +124,35 @@ query Index {
               }
             }
           }
-
-          ... on ContentfulIntroText {
+          ... on ContentfulQuote {
             title
-            cover {
-              title
-              sizes(maxWidth: 1800) {
-                ...GatsbyContentfulSizes_withWebp_noBase64
-              }
-            }
             text {
               childMarkdownRemark {
                 html
+              }
+            }
+          }
+          ... on ContentfulList {
+            title
+            heading
+            items {
+              childMarkdownRemark {
+                html
+              }
+            }
+          }
+          ... on ContentfulEventDate {
+            title
+            heading
+            start
+            finish
+          }
+          ... on ContentfulDivider {
+            title
+            image {
+              title
+              sizes(maxWidth: 1800) {
+                ...GatsbyContentfulSizes_withWebp_noBase64
               }
             }
           }

@@ -2,6 +2,12 @@ import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 import Up from '../components/Up'
+import pattern from '../images/topography.png'
+
+const Wrapper = styled.div`
+  margin: -4rem 0 0 0;
+  position: relative;
+`
 
 const List = styled.ul`
   width: 100%;
@@ -27,13 +33,14 @@ const Item = styled.li`
 `
 
 const Footer = (props) => (
-  <List>
-    <Item>
-      <a href="mailto:ryan@ryanwiemer.com">Email</a>
-      <a href="https://twitter.com/ryanwiemer" target="_blank">Twitter</a>
-    </Item>
-    {props.up && (<Item><Up/></Item>)}
-  </List>
+  <Wrapper>
+    <List>
+      <Item>
+        <a href="https://www.contentful.com/" rel="nofollow" target="_blank"><img src="https://images.contentful.com/fo9twyrwpveg/44baP9Gtm8qE2Umm8CQwQk/c43325463d1cb5db2ef97fca0788ea55/PoweredByContentful_LightBackground.svg" style={{maxWidth:"100px",width:"100%"}} alt="Powered by Contentful" /></a>
+      </Item>
+      <Item><Up/></Item>
+    </List>
+  </Wrapper>
 )
 
 export default Footer

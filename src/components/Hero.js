@@ -75,7 +75,6 @@ const ScrollLink = styled.button`
   }
 `
 
-
 const scrollTo = (e) => {
   document.querySelector('.' + e.target.id ).scrollIntoView({
     behavior: 'smooth',

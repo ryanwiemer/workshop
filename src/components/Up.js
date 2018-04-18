@@ -4,9 +4,10 @@ import styled from 'styled-components'
 if (typeof window !== `undefined`) {require('smoothscroll-polyfill').polyfill(); window.__forceSmoothScrollPolyfill__ = true;}
 
 const Arrow = styled.div`
-  color: white;
+  color: ${props => props.theme.colors.base};
   font-weight: bold;
   cursor: pointer;
+  text-decoration: underline;
 `
 
 const scrollUp = () => {
@@ -15,7 +16,7 @@ const scrollUp = () => {
 
 const Up = () => (
   <Arrow onClick={scrollUp}>
-    &uarr;
+    Back to Top
   </Arrow>
 )
 

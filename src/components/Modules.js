@@ -2,11 +2,14 @@ import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
-import Hero from  './Hero'
-import BodyText from  './BodyText'
-import IntroText from  './IntroText'
-import Biography from  './Biography'
-import PhotoGrid from  './PhotoGrid'
+import Hero from './Hero'
+import Intro from './Intro'
+import Biography from './Biography'
+import FilmStrip from './FilmStrip'
+import Quote from './Quote'
+import List from './List'
+import EventDate from './EventDate'
+import Divider from './Divider'
 
 const Modules = (props) => {
   return (
@@ -14,26 +17,27 @@ const Modules = (props) => {
       {props.modules.map(( module, index ) => (
         <li key={index}>
 
-          {module.__typename == "ContentfulPhotoGrid" && (
-            <PhotoGrid
-              title={module.title}
-              images={module.images}
-            />
-          )}
-
           {module.__typename == "ContentfulHero" && (
             <Hero
-              title={module.title}
               logo={module.logo}
-              image={module.cover}
+              image={module.image}
               links={module.links}
             />
           )}
 
-          {module.__typename == "ContentfulBiography" && (
+          {module.__typename == "ContentfulIntro" && (
+            <div>
+            <Intro
+              image={module.image}
+              heading={module.heading}
+              text={module.text}
+            />
+          </div>
+          )}
 
+          {module.__typename == "ContentfulBiography" && (
             <Biography
-              title={module.title}
+              name={module.title}
               portfolio={module.portfolio}
               instagram={module.instagram}
               facebook={module.facebook}
@@ -41,22 +45,40 @@ const Modules = (props) => {
               text={module.text}
               switch={module.switch}
             />
-
           )}
 
-          {module.__typename == "ContentfulBodyText" && (
-            <div>
-              <BodyText text={module.text}/>
-            </div>
+          {module.__typename == "ContentfulFilmStrip" && (
+            <FilmStrip
+              heading={module.heading}
+              images={module.images}
+            />
           )}
 
-          {module.__typename == "ContentfulIntroText" && (
-            <div>
-            <IntroText
-              image={module.cover}
+          {module.__typename == "ContentfulQuote" && (
+            <Quote
               text={module.text}
             />
-          </div>
+          )}
+
+          {module.__typename == "ContentfulList" && (
+            <List
+              heading={module.heading}
+              items={module.items}
+            />
+          )}
+
+          {module.__typename == "ContentfulEventDate" && (
+            <EventDate
+              heading={module.heading}
+              start={module.start}
+              finish={module.finish}
+            />
+          )}
+
+          {module.__typename == "ContentfulDivider" && (
+            <Divider
+              image={module.image}
+            />
           )}
 
         </li>
