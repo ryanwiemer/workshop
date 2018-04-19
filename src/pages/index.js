@@ -145,8 +145,8 @@ query Index {
           ... on ContentfulEventDate {
             title
             heading
-            start
-            finish
+            start(formatString: "MMMM DD, YYYY")
+            finish(formatString: "MMMM DD, YYYY")
           }
           ... on ContentfulDivider {
             title

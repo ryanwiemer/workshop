@@ -7,6 +7,7 @@ const About = styled.div`
   margin: 0 auto 1em;
   padding: 2em;
   width: 100%;
+
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     display: flex;
     flex-flow: row wrap;
@@ -18,8 +19,22 @@ const About = styled.div`
 const Profile = styled.div`
   border-radius: 2px;
   margin: 0 0 2rem 0;
+  position: relative;
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     width: 59%;
+  }
+   .gatsby-image-outer-wrapper{
+    &:after {
+      content: "";
+      position: absolute;
+      top: 2.5%;
+      left: 2.5%;
+      width: 102.5%;
+      height: 102.5%;
+      background: gray;
+      z-index: -1;
+      display: none;
+    }
   }
 `;
 
