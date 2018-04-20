@@ -49,15 +49,20 @@ const Logo = styled.div`
 `
 
 const LinkList = styled.ul`
-  width: 100%;
+  background: white;
+  height: 100%;
   text-align: center;
   z-index: 99;
-  position: absolute;
-  bottom: 2em;
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
-    bottom: 2.5em;
-    font-size: 1.25em;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  display: flex;
+  transform: rotate(-90deg) translateX(-100%);
+  transform-origin: left top;
+  border-bottom: 1px solid ${props => props.theme.colors.tertiary};
+  height: 4em;
+  display: none;
   li {
     display: inline-block;
     margin: 0 .5em;
@@ -65,8 +70,6 @@ const LinkList = styled.ul`
 `
 
 const ScrollLink = styled.button`
-  text-decoration: underline;
-  color: white;
   font-weight: bold;
   opacity: 1;
   transition: .3s;

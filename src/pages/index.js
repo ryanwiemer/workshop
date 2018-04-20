@@ -7,9 +7,8 @@ import styled from 'styled-components'
 import Modules from '../components/Modules'
 import SignUp from '../components/SignUp'
 import Footer from '../components/Footer'
-
-const Wrapper = styled.div`
-`;
+import Nav from '../components/Nav'
+import Container from '../components/Container'
 
 const Section = styled.section`
   position: relative;
@@ -31,26 +30,36 @@ const Title = styled.h2`
 const IndexPage = ({data}) =>  {
 
   const sections = data.allContentfulSection.edges;
+  const navigation = data.contentfulNavigation;
 
   return (
-    <Wrapper>
+    <Container>
+      <Nav links={navigation.links}/>
       {sections.map(({node: section}) => (
-        <Section key={section.id} className={section.slug}>
+        <Section key={section.id} id={section.slug}>
           {section.heading && (<Title>{section.heading}</Title>)}
           <Modules modules={section.modules} />
         </Section>
       ))}
-      <Section className="sign-up">
-        <Title>Sign Up</Title>
+      <Section id="register">
+        <Title>Register</Title>
         <SignUp/>
       </Section>
       <Footer/>
-    </Wrapper>
+    </Container>
   )
 }
 
 export const query = graphql`
 query Index {
+  contentfulNavigation {
+        title
+        links {
+          title
+          id
+          slug
+        }
+      }
   allContentfulSection(sort: { fields: [sortOrder], order: ASC }) {
     edges {
       node {
@@ -63,6 +72,7 @@ query Index {
           __typename
           ... on ContentfulHero {
             title
+            heading
             image {
               title
               sizes(maxWidth: 1800) {

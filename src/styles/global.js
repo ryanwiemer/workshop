@@ -68,7 +68,7 @@ injectGlobal`
   /* Site Specific Globals */
   body {
     background: white;
-    color: #282828;
+    color: #434343;
   }
 
   img {
