@@ -9,6 +9,7 @@ import SignUp from '../components/SignUp'
 import Footer from '../components/Footer'
 import Nav from '../components/Nav'
 import Container from '../components/Container'
+import Waypoint from 'react-waypoint'
 
 const Section = styled.section`
   position: relative;
@@ -27,27 +28,48 @@ const Title = styled.h2`
   }
 `;
 
-const IndexPage = ({data}) =>  {
+class IndexPage extends React.Component {
 
-  const sections = data.allContentfulSection.edges;
-  const navigation = data.contentfulNavigation;
+  constructor (props) {
+      super(props)
+      this.state = {
+        highlight: '',
+      };
+    }
 
-  return (
-    <Container>
-      <Nav links={navigation.links}/>
-      {sections.map(({node: section}) => (
-        <Section key={section.id} className={section.slug}>
-          {section.heading && (<Title>{section.heading}</Title>)}
-          <Modules modules={section.modules} />
-        </Section>
-      ))}
-      <Section className="register">
-        <Title>Register</Title>
-        <SignUp/>
-      </Section>
-      <Footer/>
-    </Container>
-  )
+
+  render() {
+    const sections = this.props.data.allContentfulSection.edges;
+    const navigation = this.props.data.contentfulNavigation;
+      return (
+        <Container>
+          <Nav links={navigation.links}/>
+          {sections.map(({node: section}) => (
+            <Section key={section.id} className={section.slug}>
+              <Waypoint onEnter={() => this.setState({ highlight: section.slug })}>
+                <div>
+                  {section.heading && (<Title>{section.heading}</Title>)}
+                  <Modules modules={section.modules} />
+                </div>
+              </Waypoint>
+            </Section>
+          ))}
+          <Section className="register">
+            <Waypoint onEnter={() => this.setState({ highlight: "register" })}>
+              <div>
+                <Title>Register</Title>
+                <SignUp/>
+              </div>
+            </Waypoint>
+          </Section>
+          <Footer/>
+        </Container>
+      )
+    }
+}
+
+IndexPage.propTypes = {
+  data: PropTypes.object,
 }
 
 export const query = graphql`

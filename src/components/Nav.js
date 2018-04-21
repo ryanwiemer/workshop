@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
-import Waypoint from 'react-waypoint'
 import tree from '../images/tree.svg'
 
 const Wrapper = styled.nav`
