@@ -19,9 +19,10 @@ const Wrapper = styled.div`
     text-align: center;
     color: white;
     font-size: 3em;
-    font-weight: bold;
+    text-transform: uppercase;
     @media screen and (min-width: ${props => props.theme.responsive.medium}) {
-      font-size: 7vw;
+      font-size: 5em;
+      font-size: 5vw;
     }
   }
 `

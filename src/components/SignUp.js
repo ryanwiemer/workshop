@@ -2,10 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import 'whatwg-fetch' // Fetch Polyfill
-import pattern from '../images/topography.png'
 
 const Wrapper = styled.div`
-  background: url(${pattern});
   position: relative;
   padding: 0 0 4rem 0;
   &:after {

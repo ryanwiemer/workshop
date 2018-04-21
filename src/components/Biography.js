@@ -7,7 +7,6 @@ const About = styled.div`
   margin: 0 auto 1em;
   padding: 2em;
   width: 100%;
-
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     display: flex;
     flex-flow: row wrap;
@@ -48,7 +47,7 @@ const Name = styled.h2`
   font-family: 'PT Serif', serif;
   font-weight: bold;
   display: inline-block;
-  font-size: 2.5em;
+  font-size: 1.75em;
   margin: 0 0 1rem 0;
 `;
 
@@ -63,8 +62,9 @@ const Text = styled.div`
 const ExternalLinks = styled.div`
   display: flex;
   a {
+    color: ${props => props.theme.colors.base};
     display: inline-block;
-    background: ${props => props.theme.colors.secondary};
+    border: 1px solid ${props => props.theme.colors.tertiary};
     border-radius: 2px;
     font-size: 1.1em;
     margin: 0 .5rem 0 0;

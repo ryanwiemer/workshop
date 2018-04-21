@@ -1,9 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
+import land from '../images/topography.svg'
 
 const Wrapper = styled.div`
-  background: ${props => props.theme.colors.secondary};
+  background-color: ${props => props.theme.colors.secondary};
+  /*background-image: url(${land});*/
   padding: 4em 2em;
   display: flex;
   align-items: center;

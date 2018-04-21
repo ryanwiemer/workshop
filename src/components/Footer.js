@@ -2,7 +2,6 @@ import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 import Up from '../components/Up'
-import pattern from '../images/topography.png'
 
 const Wrapper = styled.div`
   margin: -4rem 0 0 0;

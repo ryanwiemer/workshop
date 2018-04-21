@@ -16,14 +16,14 @@ const Section = styled.section`
 
 const Title = styled.h2`
   text-align: center;
+  text-transform: uppercase;
   font-size: 3em;
   padding: 4rem 0 2rem 0;
-  font-weight: bold;
   z-index: 99;
   position: relative;
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     font-size: 5em;
-    font-size: 7vw;
+    font-size: 5vw;
   }
 `;
 
@@ -36,12 +36,12 @@ const IndexPage = ({data}) =>  {
     <Container>
       <Nav links={navigation.links}/>
       {sections.map(({node: section}) => (
-        <Section key={section.id} id={section.slug}>
+        <Section key={section.id} className={section.slug}>
           {section.heading && (<Title>{section.heading}</Title>)}
           <Modules modules={section.modules} />
         </Section>
       ))}
-      <Section id="register">
+      <Section className="register">
         <Title>Register</Title>
         <SignUp/>
       </Section>
