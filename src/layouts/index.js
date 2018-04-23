@@ -6,6 +6,8 @@ import styled, {ThemeProvider} from 'styled-components'
 import favicon from '../images/favicon.ico'
 import globals from '../styles/global'
 import theme from '../styles/theme'
+import config from 'react-reveal/globals';
+config({ ssrFadeout: true });
 
 const TemplateWrapper = ({ children }) => (
   <ThemeProvider theme={theme}>
@@ -22,7 +24,7 @@ const TemplateWrapper = ({ children }) => (
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Workshop" />
         <meta property="og:url" content="https://www.knw.io" />
-        <link href="https://fonts.googleapis.com/css?family=Fira+Sans|PT+Serif:400,700" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700|Source+Sans+Pro:400,600" rel="stylesheet"/>
       </Helmet>
       {children()}
     </div>

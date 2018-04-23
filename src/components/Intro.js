@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
+import Reveal from 'react-reveal/Reveal'
 
 const Wrapper = styled.div`
   background-color: ${props => props.theme.colors.secondary};
@@ -57,10 +58,12 @@ const Intro = (props) => {
 
       <IntroImg><Img sizes={props.image.sizes} alt={props.image.title} title={props.image.title} /></IntroImg>
 
-      <Info>
-        <Heading>{props.heading}</Heading>
-        <Text dangerouslySetInnerHTML={{ __html: props.text.childMarkdownRemark.html }}/>
-      </Info>
+      <Reveal>
+        <Info>
+          <Heading>{props.heading}</Heading>
+          <Text dangerouslySetInnerHTML={{ __html: props.text.childMarkdownRemark.html }}/>
+        </Info>
+      </Reveal>
 
     </Wrapper>
   )

@@ -51,7 +51,7 @@ const Logo = styled.div`
 const Hero = (props) => {
   return (
     <Wrapper>
-      <BgImg sizes={props.image.sizes} position={props.position} alt={props.image.title} title={props.image.title} backgroundColor={"#EEEEEE"} />
+      <BgImg sizes={props.image.sizes} position={props.position} alt={props.image.title} title={props.image.title} backgroundColor={"#aaaea2"} />
       {props.logo && (<Logo id="start"><Img sizes={props.logo.sizes} alt={props.logo.title} title={props.logo.title} /></Logo>)}
     </Wrapper>
   )

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
+import Reveal from 'react-reveal/Reveal'
 
 const About = styled.div`
   max-width: ${props => props.theme.sizes.maxWidth};
@@ -83,10 +84,13 @@ const ExternalLinks = styled.div`
 
 const Biography = (props) => {
   return (
+
+    <Reveal>
+
       <About switch={props.switch}>
 
         <Profile>
-          <Img sizes={props.image.sizes} alt={props.image.title} title={props.image.title} backgroundColor={'#eeeeee'}/>
+          <Img sizes={props.image.sizes} alt={props.image.title} title={props.image.title} backgroundColor={"#aaaea2"}/>
         </Profile>
 
         <Details>
@@ -108,6 +112,7 @@ const Biography = (props) => {
         </Details>
 
       </About>
+    </Reveal>
   )
 }
 

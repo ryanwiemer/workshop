@@ -36,7 +36,7 @@ const List = styled.ul`
 const LinkForScroll = styled(Link)`
   display: inline-block;
   font-size: 1.2em;
-  font-weight: bold;
+  font-weight: 600;
   margin: 0 .5rem;
   padding: .5rem;
   border-radius: 2px;
