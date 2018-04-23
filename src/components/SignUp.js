@@ -19,7 +19,7 @@ const Wrapper = styled.div`
 const Form = styled.form`
   max-width: 850px;
   margin: 0 auto 0;
-  padding: 2em;
+  padding: 0 2em 2em 2em;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;

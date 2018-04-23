@@ -1,21 +1,22 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import styled from 'styled-components'
-if (typeof window !== `undefined`) {require('smoothscroll-polyfill').polyfill(); window.__forceSmoothScrollPolyfill__ = true;}
+import { Link, Element, scrollSpy, Events } from 'react-scroll';
 
-const Arrow = styled.div`
+const Arrow = styled(Link)`
   color: ${props => props.theme.colors.base};
   font-weight: bold;
   cursor: pointer;
   text-decoration: underline;
 `
 
-const scrollUp = () => {
-  scroll({ top: 0, left: 0, behavior: 'smooth' });
-}
-
 const Up = () => (
-  <Arrow onClick={scrollUp}>
+  <Arrow
+    to="top"
+    spy={true}
+    smooth={true}
+    duration={300}
+    activeClass="active"
+  >
     Back to Top
   </Arrow>
 )

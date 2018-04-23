@@ -9,7 +9,7 @@ import SignUp from '../components/SignUp'
 import Footer from '../components/Footer'
 import Nav from '../components/Nav'
 import Container from '../components/Container'
-import Waypoint from 'react-waypoint'
+import { Element, scrollSpy, Events } from 'react-scroll';
 
 const Section = styled.section`
   position: relative;
@@ -19,7 +19,7 @@ const Title = styled.h2`
   text-align: center;
   text-transform: uppercase;
   font-size: 3em;
-  padding: 4rem 0 2rem 0;
+  padding: 4rem 0 4rem 0;
   z-index: 99;
   position: relative;
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
@@ -30,38 +30,27 @@ const Title = styled.h2`
 
 class IndexPage extends React.Component {
 
-  constructor (props) {
-      super(props)
-      this.state = {
-        highlight: '',
-      };
-    }
-
-
   render() {
     const sections = this.props.data.allContentfulSection.edges;
     const navigation = this.props.data.contentfulNavigation;
+
       return (
         <Container>
+
           <Nav links={navigation.links}/>
+
           {sections.map(({node: section}) => (
-            <Section key={section.id} className={section.slug}>
-              <Waypoint onEnter={() => this.setState({ highlight: section.slug })}>
-                <div>
-                  {section.heading && (<Title>{section.heading}</Title>)}
-                  <Modules modules={section.modules} />
-                </div>
-              </Waypoint>
-            </Section>
+            <Element key={section.id} name={section.slug}>
+              {section.heading && (<Title>{section.heading}</Title>)}
+              <Modules modules={section.modules} />
+            </Element>
           ))}
-          <Section className="register">
-            <Waypoint onEnter={() => this.setState({ highlight: "register" })}>
-              <div>
-                <Title>Register</Title>
-                <SignUp/>
-              </div>
-            </Waypoint>
-          </Section>
+
+          <Element name="register">
+            <Title>Register</Title>
+            <SignUp/>
+          </Element>
+
           <Footer/>
         </Container>
       )

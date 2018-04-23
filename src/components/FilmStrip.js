@@ -3,12 +3,16 @@ import styled from 'styled-components'
 import Img from 'gatsby-image'
 
 const Wrapper = styled.div`
+  padding: 4rem 0 0 0;
+`
+
+const Background = styled.div`
   position: relative;
   background: ${props => props.theme.colors.secondary};
   padding: 1em 0;
   padding: 1% 0;
-  margin: 0 0 2rem 0;
-  overflow: hidden;
+  margin: 0;
+  overflow-x: hidden;
   h2 {
     position: absolute;
     top: 50%;
@@ -27,7 +31,7 @@ const Wrapper = styled.div`
   }
 `
 
-const Grid = styled.ul`
+const Film = styled.ul`
   display: flex;
   justify-content: space-between;
   width: 200%;
@@ -67,16 +71,18 @@ const Grid = styled.ul`
 const FilmStrip = (props) => {
   return (
     <Wrapper>
-      <h2>{props.heading}</h2>
-      <Grid>
-        {props.images && (
-          props.images.map((image, index) => (
-            <li key={index}>
-              <Img sizes={image.sizes} alt={image.title} title={image.title} backgroundColor={"#EEEEEE"} />
-            </li>
-          ))
-        )}
-      </Grid>
+      <Background>
+        <h2>{props.heading}</h2>
+        <Film>
+          {props.images && (
+            props.images.map((image, index) => (
+              <li key={index}>
+                <Img sizes={image.sizes} alt={image.title} title={image.title} backgroundColor={"#EEEEEE"} />
+              </li>
+            ))
+          )}
+        </Film>
+    </Background>
     </Wrapper>
   )
 }

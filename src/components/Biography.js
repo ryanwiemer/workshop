@@ -4,8 +4,8 @@ import Img from 'gatsby-image'
 
 const About = styled.div`
   max-width: ${props => props.theme.sizes.maxWidth};
-  margin: 0 auto 1em;
-  padding: 2em;
+  margin: 0 auto;
+  padding: 0 2em 2em 2em;
   width: 100%;
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     display: flex;
