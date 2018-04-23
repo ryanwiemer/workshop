@@ -48,56 +48,11 @@ const Logo = styled.div`
   }
 `
 
-const LinkList = styled.ul`
-  background: white;
-  height: 100%;
-  text-align: center;
-  z-index: 99;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  display: flex;
-  transform: rotate(-90deg) translateX(-100%);
-  transform-origin: left top;
-  border-bottom: 1px solid ${props => props.theme.colors.tertiary};
-  height: 4em;
-  display: none;
-  li {
-    display: inline-block;
-    margin: 0 .5em;
-  }
-`
-
-const ScrollLink = styled.button`
-  font-weight: bold;
-  opacity: 1;
-  transition: .3s;
-  &:hover {
-    opacity: .75;
-  }
-`
-
 const Hero = (props) => {
   return (
     <Wrapper>
       <BgImg sizes={props.image.sizes} position={props.position} alt={props.image.title} title={props.image.title} backgroundColor={"#EEEEEE"} />
-
       {props.logo && (<Logo id="start"><Img sizes={props.logo.sizes} alt={props.logo.title} title={props.logo.title} /></Logo>)}
-
-      <LinkList>
-        {props.links && (
-          props.links.map((link) => (
-            <li key={link.id}>
-              <ScrollLink onClick={scrollTo} id={link.slug}>{link.title}</ScrollLink>
-            </li>
-          ))
-        )}
-        <li>
-          <ScrollLink onClick={scrollTo} id="sign-up">Sign Up</ScrollLink>
-        </li>
-      </LinkList>
-
     </Wrapper>
   )
 }
