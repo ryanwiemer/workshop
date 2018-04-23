@@ -78,19 +78,12 @@ const ScrollLink = styled.button`
   }
 `
 
-const scrollTo = (e) => {
-  document.querySelector('.' + e.target.id ).scrollIntoView({
-    behavior: 'smooth',
-    block: 'start'
-  });
-}
-
 const Hero = (props) => {
   return (
     <Wrapper>
       <BgImg sizes={props.image.sizes} position={props.position} alt={props.image.title} title={props.image.title} backgroundColor={"#EEEEEE"} />
 
-      {props.logo && (<Logo><Img sizes={props.logo.sizes} alt={props.logo.title} title={props.logo.title} /></Logo>)}
+      {props.logo && (<Logo id="start"><Img sizes={props.logo.sizes} alt={props.logo.title} title={props.logo.title} /></Logo>)}
 
       <LinkList>
         {props.links && (

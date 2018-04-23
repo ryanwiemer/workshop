@@ -53,7 +53,7 @@ const Text = styled.div`
 const Intro = (props) => {
   return (
 
-    <Wrapper>
+    <Wrapper id="end">
 
       <IntroImg><Img sizes={props.image.sizes} alt={props.image.title} title={props.image.title} /></IntroImg>
 
