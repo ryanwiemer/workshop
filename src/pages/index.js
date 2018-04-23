@@ -18,7 +18,7 @@ const Section = styled.section`
 const Title = styled.h2`
   text-align: center;
   text-transform: uppercase;
-  font-size: 3em;
+  font-size: 2em;
   padding: 4rem 0 4rem 0;
   z-index: 99;
   position: relative;

@@ -22,7 +22,7 @@ const Background = styled.div`
     text-shadow: 1px 1px 0px rgba(0,0,0,0.2);
     text-align: center;
     color: white;
-    font-size: 3em;
+    font-size: 2em;
     text-transform: uppercase;
     @media screen and (min-width: ${props => props.theme.responsive.medium}) {
       font-size: 5em;

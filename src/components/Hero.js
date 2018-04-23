@@ -37,14 +37,18 @@ const BgImg = styled(Img)`
 
 const Logo = styled.div`
   z-index: 2;
-  width: 40%;
+  width: 60%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  max-width: 350px;
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     width: 50%;
     max-width: 400px;
+  }
+  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+    width: 50%;
   }
 `
 

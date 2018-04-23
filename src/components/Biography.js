@@ -48,8 +48,11 @@ const Name = styled.h2`
   font-family: 'PT Serif', serif;
   font-weight: bold;
   display: inline-block;
-  font-size: 1.75em;
+  font-size: 1.25em;
   margin: 0 0 1rem 0;
+  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+    font-size: 1.75em;
+  }
 `;
 
 const Text = styled.div`

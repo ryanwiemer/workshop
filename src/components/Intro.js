@@ -30,17 +30,23 @@ const Info = styled.div`
 
 const Heading = styled.h3`
   font-family: 'PT Serif', serif;
-  font-size: 1.75em;
+  font-size: 1.25em;
   font-weight: bold;
   line-height: 1.4;
   margin: 0 0 2rem 0;
   position: relative;
+  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+    font-size: 1.75em;
+  }
 `;
 
 const Text = styled.div`
   position: relative;
   p {
-    font-size: 1.25em;
+    font-size: 1.1em;
+    @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+      font-size: 1.25em;
+    }
     line-height: 1.5;
     margin: 0 0 2rem 0;
     &:last-child {
