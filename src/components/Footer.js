@@ -16,16 +16,14 @@ const List = styled.ul`
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1.5rem;
+  padding: 0 2rem;
   height: 4rem;
-  @media screen and (min-width: ${props => props.theme.responsive.small}) {
-    padding: 0 3rem;
-  }
 `
 
 const Item = styled.li`
   color: white;
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 1.1em;
   a {
     margin: 0 1rem 0 0;
   }

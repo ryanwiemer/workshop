@@ -5,27 +5,18 @@ import Reveal from 'react-reveal/Reveal'
 
 const Wrapper = styled.div`
   background-color: ${props => props.theme.colors.secondary};
-  padding: 4em 2em;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
-    padding: 4em 2em;
     min-height: 100vh;
   }
 `;
 
-const IntroImg = styled.div`
-  width: 25%;
-  margin: 0 0 0 -1em;
-  z-index: 0;
-  opacity: .25;
-  display: none;
-`;
-
 const Info = styled.div`
-  max-width: 750px;
+  max-width: 800px;
+  padding: 4rem 2rem 2rem;
 `;
 
 const Heading = styled.h3`
@@ -60,9 +51,7 @@ const Text = styled.div`
 const Intro = (props) => {
   return (
 
-    <Wrapper id="end">
-
-      <IntroImg><Img sizes={props.image.sizes} alt={props.image.title} title={props.image.title} /></IntroImg>
+    <Wrapper>
 
       <Reveal>
         <Info>

@@ -5,15 +5,11 @@ import Img from 'gatsby-image'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import Modules from '../components/Modules'
-import SignUp from '../components/SignUp'
+import Register from '../components/Register'
 import Footer from '../components/Footer'
 import Nav from '../components/Nav'
 import Container from '../components/Container'
-import { Element, scrollSpy, Events } from 'react-scroll';
-
-const Section = styled.section`
-  position: relative;
-`;
+import { Element, scrollSpy, Events } from 'react-scroll'
 
 const Title = styled.h2`
   text-align: center;
@@ -22,6 +18,9 @@ const Title = styled.h2`
   padding: 4rem 0 4rem 0;
   z-index: 99;
   position: relative;
+  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+    font-size: 2.25em;
+  }
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     font-size: 5em;
     font-size: 5vw;
@@ -48,7 +47,7 @@ class IndexPage extends React.Component {
 
           <Element name="register">
             <Title>Register</Title>
-            <SignUp/>
+            <Register/>
           </Element>
 
           <Footer/>
@@ -126,7 +125,7 @@ query Index {
             switch
             image {
               title
-              sizes(maxWidth: 1800) {
+              sizes(maxWidth: 800) {
                 ...GatsbyContentfulSizes_withWebp_noBase64
               }
             }
@@ -141,12 +140,12 @@ query Index {
             heading
             images {
               title
-              sizes(maxWidth: 1800) {
+              sizes(maxWidth: 400) {
                 ...GatsbyContentfulSizes_withWebp_noBase64
               }
             }
           }
-          ... on ContentfulQuote {
+          ... on ContentfulBody {
             title
             text {
               childMarkdownRemark {
@@ -154,20 +153,42 @@ query Index {
               }
             }
           }
-          ... on ContentfulList {
+          ... on ContentfulAgenda {
             title
-            heading
-            items {
+            heading1
+            text1 {
+              childMarkdownRemark {
+                html
+              }
+            }
+            heading2
+            text2 {
+              childMarkdownRemark {
+                html
+              }
+            }
+            heading3
+            text3 {
               childMarkdownRemark {
                 html
               }
             }
           }
-          ... on ContentfulEventDate {
+          ... on ContentfulHighlight {
             title
             heading
-            start(formatString: "MMMM DD, YYYY")
-            finish(formatString: "MMMM DD, YYYY")
+            text {
+              childMarkdownRemark {
+                html
+              }
+            }
+            image {
+              title
+              sizes(maxWidth: 800) {
+                ...GatsbyContentfulSizes_withWebp_noBase64
+              }
+            }
+            switch
           }
           ... on ContentfulDivider {
             title

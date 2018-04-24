@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const Wrapper = styled.div`
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
-      margin: 0 0 0 4em;
+      margin: 0 0 0 4rem;
   }
 `;
 

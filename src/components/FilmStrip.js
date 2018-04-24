@@ -3,15 +3,14 @@ import styled from 'styled-components'
 import Img from 'gatsby-image'
 
 const Wrapper = styled.div`
-  padding: 4rem 0 0 0;
+  padding: 0 0 0 0;
 `
 
 const Background = styled.div`
   position: relative;
   background: ${props => props.theme.colors.secondary};
-  padding: 1em 0;
+  padding: 1rem 0;
   padding: 1% 0;
-  margin: 0;
   overflow-x: hidden;
   h2 {
     position: absolute;
@@ -24,6 +23,9 @@ const Background = styled.div`
     color: white;
     font-size: 2em;
     text-transform: uppercase;
+    @media screen and (min-width: ${props => props.theme.responsive.small}) {
+      font-size: 2.25em;
+    }
     @media screen and (min-width: ${props => props.theme.responsive.medium}) {
       font-size: 5em;
       font-size: 5vw;
@@ -77,7 +79,7 @@ const FilmStrip = (props) => {
           {props.images && (
             props.images.map((image, index) => (
               <li key={index}>
-                <Img sizes={image.sizes} alt={image.title} title={image.title} backgroundColor={"#EEEEEE"} />
+                <Img sizes={image.sizes} alt={image.title} title={image.title} backgroundColor={"#aaaea2"} />
               </li>
             ))
           )}

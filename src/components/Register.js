@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import Reveal from 'react-reveal/Reveal'
 import 'whatwg-fetch' // Fetch Polyfill
 
 const Wrapper = styled.div`
@@ -17,9 +18,10 @@ const Wrapper = styled.div`
 `
 
 const Form = styled.form`
-  max-width: 850px;
+  font-size: 1.1em;
+  max-width: 800px;
   margin: 0 auto 0;
-  padding: 0 2em 2em 2em;
+  padding: 0 2rem 2rem 2rem;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -90,10 +92,6 @@ const Submit = styled.input`
   border: none !important;
   color: white !important;
   cursor: pointer;
-  transition: .2s;
-  &:hover {
-    background: ${props => props.theme.colors.highlight} !important;
-  }
 `
 
 const Modal = styled.div`
@@ -140,9 +138,6 @@ const Button = styled.div`
   &:focus {
     outline: none;
   }
-  &:hover {
-    background: ${props => props.theme.colors.highlight};
-  }
 `
 
 const encode = (data) => {
@@ -151,7 +146,7 @@ const encode = (data) => {
    .join("&");
 }
 
-class SignUp extends React.Component {
+class Register extends React.Component {
 
   constructor (props) {
     super(props)
@@ -199,28 +194,30 @@ class SignUp extends React.Component {
   render() {
 
     return (
-      <Wrapper>
-        <Form name="signup" onSubmit={this.handleSubmit} data-netlify="true" data-netlify-honeypot="bot" overlay={this.state.showModal} onClick={this.closeModal}>
-          <input type="hidden" name="form-name" value="contact" />
-          <p hidden><label>Don’t fill this out: <input name="bot" onChange={this.handleInputChange} /></label></p>
+      <Reveal>
+        <Wrapper>
+          <Form name="signup" onSubmit={this.handleSubmit} data-netlify="true" data-netlify-honeypot="bot" overlay={this.state.showModal} onClick={this.closeModal}>
+            <input type="hidden" name="form-name" value="contact" />
+            <p hidden><label>Don’t fill this out: <input name="bot" onChange={this.handleInputChange} /></label></p>
 
-          <Name name="name" type="text" placeholder="Full Name" value={this.state.name} onChange={this.handleInputChange} required/>
-          <Email name="email" type="email" placeholder="Email" value={this.state.email} onChange={this.handleInputChange} required/>
-          <Message name="message" type="text" placeholder="Message" value={this.state.message} onChange={this.handleInputChange} required/>
-          <Submit name="submit" type="submit" value="Send" />
+            <Name name="name" type="text" placeholder="Full Name" value={this.state.name} onChange={this.handleInputChange} required/>
+            <Email name="email" type="email" placeholder="Email" value={this.state.email} onChange={this.handleInputChange} required/>
+            <Message name="message" type="text" placeholder="Message" value={this.state.message} onChange={this.handleInputChange} required/>
+            <Submit name="submit" type="submit" value="Send" />
 
-          <Modal visible={this.state.showModal}>
-            <p>Thank you for reaching out. We will get back to you as soon as possible.</p>
-            <Button onClick={this.closeModal}>Okay</Button>
-          </Modal>
-        </Form>
-      </Wrapper>
+            <Modal visible={this.state.showModal}>
+              <p>Thank you for reaching out. We will get back to you as soon as possible.</p>
+              <Button onClick={this.closeModal}>Okay</Button>
+            </Modal>
+          </Form>
+        </Wrapper>
+      </Reveal>
     )
   }
 }
 
-SignUp.propTypes = {
+Register.propTypes = {
   data: PropTypes.object,
 }
 
-export default SignUp
+export default Register

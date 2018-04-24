@@ -1,9 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
+import Plx from 'react-plx'
 
 const Wrapper = styled.div`
   position: relative;
+  overflow: hidden;
 `
 
 const BgImg = styled(Img)`
@@ -54,9 +56,24 @@ const Logo = styled.div`
 
 const Hero = (props) => {
   return (
-    <Wrapper>
-      <BgImg sizes={props.image.sizes} position={props.position} alt={props.image.title} title={props.image.title} backgroundColor={"#aaaea2"} />
-      {props.logo && (<Logo id="start"><Img sizes={props.logo.sizes} alt={props.logo.title} title={props.logo.title} /></Logo>)}
+    <Wrapper className="hero">
+      <Plx
+         className='MyAwesomeParallax'
+         parallaxData={[{
+          start: 0,
+          duration: '.hero',
+          properties: [
+            {
+              startValue: 1,
+              endValue: 1.1,
+              property: 'scale'
+            }
+          ]
+        }]}
+       >
+          <BgImg sizes={props.image.sizes} position={props.position} alt={props.image.title} title={props.image.title} backgroundColor={"#aaaea2"} />
+          {props.logo && (<Logo><Img sizes={props.logo.sizes} alt={props.logo.title} title={props.logo.title} /></Logo>)}
+      </Plx>
     </Wrapper>
   )
 }

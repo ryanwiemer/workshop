@@ -6,7 +6,7 @@ import Reveal from 'react-reveal/Reveal'
 const About = styled.div`
   max-width: ${props => props.theme.sizes.maxWidth};
   margin: 0 auto;
-  padding: 0 2em 2em 2em;
+  padding: 0 2rem 2rem 2rem;
   width: 100%;
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     display: flex;
@@ -23,22 +23,10 @@ const Profile = styled.div`
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     width: 59%;
   }
-   .gatsby-image-outer-wrapper{
-    &:after {
-      content: "";
-      position: absolute;
-      top: 2.5%;
-      left: 2.5%;
-      width: 102.5%;
-      height: 102.5%;
-      background: gray;
-      z-index: -1;
-      display: none;
-    }
-  }
 `;
 
 const Details = styled.div`
+  margin: 0 0 2rem 0;
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     width: 38%;
   }
@@ -46,7 +34,7 @@ const Details = styled.div`
 
 const Name = styled.h2`
   font-family: 'PT Serif', serif;
-  font-weight: bold;
+  font-weight: 600;
   display: inline-block;
   font-size: 1.25em;
   margin: 0 0 1rem 0;
@@ -66,12 +54,21 @@ const Text = styled.div`
 const ExternalLinks = styled.div`
   display: flex;
   a {
+    transition: .3s;
     color: ${props => props.theme.colors.base};
     display: inline-block;
     border: 1px solid ${props => props.theme.colors.tertiary};
     border-radius: 2px;
     font-size: 1.1em;
     margin: 0 .5rem 0 0;
+    &:hover {
+      border-color: ${props => props.theme.colors.secondary};
+      background: ${props => props.theme.colors.secondary};
+    }
+    @media (hover: none) {
+      border-color: color: ${props => props.theme.colors.tertiary} !important;
+      background: none !important;
+    }
     &:first-child {
       padding: 1em;
     }

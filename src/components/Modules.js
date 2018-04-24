@@ -6,10 +6,10 @@ import Hero from './Hero'
 import Intro from './Intro'
 import Biography from './Biography'
 import FilmStrip from './FilmStrip'
-import Quote from './Quote'
-import List from './List'
-import EventDate from './EventDate'
+import Body from './Body'
+import Agenda from './Agenda'
 import Divider from './Divider'
+import Highlight from './Highlight'
 
 const Modules = (props) => {
   return (
@@ -54,24 +54,29 @@ const Modules = (props) => {
             />
           )}
 
-          {module.__typename == "ContentfulQuote" && (
-            <Quote
+          {module.__typename == "ContentfulBody" && (
+            <Body
               text={module.text}
             />
           )}
 
-          {module.__typename == "ContentfulList" && (
-            <List
-              heading={module.heading}
-              items={module.items}
+          {module.__typename == "ContentfulAgenda" && (
+            <Agenda
+              heading1={module.heading1}
+              text1={module.text1}
+              heading2={module.heading2}
+              text2={module.text2}
+              heading3={module.heading3}
+              text3={module.text3}
             />
           )}
 
-          {module.__typename == "ContentfulEventDate" && (
-            <EventDate
+          {module.__typename == "ContentfulHighlight" && (
+            <Highlight
               heading={module.heading}
-              start={module.start}
-              finish={module.finish}
+              image={module.image}
+              text={module.text}
+              switch={module.switch}
             />
           )}
 
