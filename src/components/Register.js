@@ -173,7 +173,7 @@ class Register extends React.Component {
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": "signup", ...this.state })
+        body: encode({ "form-name": "register", ...this.state })
       })
       .then(this.handleSuccess)
       .catch(error => alert(error));
@@ -198,8 +198,8 @@ class Register extends React.Component {
     return (
       <Reveal>
         <Wrapper>
-          <Form name="signup" onSubmit={this.handleSubmit} data-netlify="true" data-netlify-honeypot="bot" overlay={this.state.showModal} onClick={this.closeModal}>
-            <input type="hidden" name="form-name" value="contact" />
+          <Form name="register" onSubmit={this.handleSubmit} data-netlify="true" data-netlify-honeypot="bot" overlay={this.state.showModal} onClick={this.closeModal}>
+            <input type="hidden" name="form-name" value="register" />
             <p hidden><label>Don’t fill this out: <input name="bot" onChange={this.handleInputChange} /></label></p>
 
             <Name name="name" type="text" placeholder="Full Name" value={this.state.name} onChange={this.handleInputChange} required/>
