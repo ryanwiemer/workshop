@@ -73,10 +73,12 @@ const Modules = (props) => {
 
           {module.__typename == "ContentfulHighlight" && (
             <Highlight
-              heading={module.heading}
-              image={module.image}
-              text={module.text}
-              switch={module.switch}
+              heading1={module.heading1}
+              subheading1={module.subheading1}
+              image1={module.image1}
+              heading2={module.heading2}
+              subheading2={module.subheading2}
+              image2={module.image2}
             />
           )}
 

@@ -3,8 +3,10 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Reveal from 'react-reveal/Reveal'
 import 'whatwg-fetch' // Fetch Polyfill
+import topography from '../images/topography.png'
 
 const Wrapper = styled.div`
+  background: url(${topography});
   position: relative;
   padding: 0 0 4rem 0;
   &:after {

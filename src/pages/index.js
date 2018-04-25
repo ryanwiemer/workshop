@@ -176,19 +176,22 @@ query Index {
           }
           ... on ContentfulHighlight {
             title
-            heading
-            text {
-              childMarkdownRemark {
-                html
-              }
-            }
-            image {
+            heading1
+            subheading1
+            image1 {
               title
               sizes(maxWidth: 800) {
                 ...GatsbyContentfulSizes_withWebp_noBase64
               }
             }
-            switch
+            heading2
+            subheading2
+            image2 {
+              title
+              sizes(maxWidth: 800) {
+                ...GatsbyContentfulSizes_withWebp_noBase64
+              }
+            }
           }
           ... on ContentfulDivider {
             title

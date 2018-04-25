@@ -4,33 +4,35 @@ import Img from 'gatsby-image'
 import Reveal from 'react-reveal/Reveal'
 
 const Wrapper = styled.div`
-  margin: 2rem auto 0;
+  margin: 0 auto;
+  padding: 0 2rem;
   max-width: ${props => props.theme.sizes.maxWidth};
-`;
-
-const Border = styled.div`
-  margin: 0 2rem;
-  border: 1px solid ${props => props.theme.colors.tertiary};
-  border-radius: 2px;
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  @media screen and (min-width: ${props => props.theme.responsive.small}) {
     display: flex;
     justify-content: space-between;
-    flex-direction: ${props => props.switch ? 'row' : 'row-reverse'};
   }
 `;
+
 
 const Cover = styled.div`
-  width: 100%;
+  padding: 2em 10% 2rem;
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
-    width: 50%;
+    padding: 2em 20% 0;
   }
 `;
 
-const Details = styled.div`
-  padding: 2em;
+const Box = styled.div`
   width: 100%;
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
-    width: 50%;
+  text-align: center;
+  padding: .5em;
+  border-bottom: 1px solid ${props => props.theme.colors.secondary};
+  &:last-child {
+    border: none;
+  }
+  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+    flex: 0 1 50%;
+    border: none;
+    border-right: 1px solid ${props => props.theme.colors.secondary};
   }
 `;
 
@@ -38,35 +40,41 @@ const Heading = styled.h3`
   font-family: 'PT Serif', serif;
   font-size: 1.25em;
   font-weight: 600;
-  margin: 0 0 1rem 0;
+  margin: 1rem 0;
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     font-size: 1.75em;
   }
 `;
 
-const Text = styled.div`
+const Subheading = styled.h4`
   font-size: 1.1em;
-  line-height: 1.5;
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {}
+  line-height: 1.4;
+  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+    font-size: 1.25em;
+  }
 `;
+
 
 const Highlight = (props) => {
   return (
     <Reveal>
       <Wrapper>
 
-        <Border switch={props.switch}>
+          <Box>
+            <Heading>{props.heading1}</Heading>
+            <Subheading>{props.subheading1}</Subheading>
+            <Cover>
+              <Img style={{borderRadius: '50%'}} sizes={props.image1.sizes} alt={props.image1.title} title={props.image1.title} backgroundColor={"#f5efe9"}/>
+            </Cover>
+          </Box>
 
-          <Cover>
-            <Img sizes={props.image.sizes} alt={props.image.title} title={props.image.title} backgroundColor={"#aaaea2"}/>
-          </Cover>
-
-          <Details>
-            <Heading>{props.heading}</Heading>
-            <Text dangerouslySetInnerHTML={{ __html: props.text.childMarkdownRemark.html }}/>
-          </Details>
-
-        </Border>
+          <Box>
+            <Heading>{props.heading2}</Heading>
+            <Subheading>{props.subheading2}</Subheading>
+            <Cover>
+              <Img style={{borderRadius: '50%'}} sizes={props.image2.sizes} alt={props.image2.title} title={props.image2.title} backgroundColor={"#f5efe9"}/>
+            </Cover>
+          </Box>
 
       </Wrapper>
     </Reveal>
