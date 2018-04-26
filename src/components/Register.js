@@ -3,19 +3,40 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Reveal from 'react-reveal/Reveal'
 import 'whatwg-fetch' // Fetch Polyfill
-import topography from '../images/topography.png'
 
 const Wrapper = styled.div`
-  background: url(${topography});
   position: relative;
   padding: 0 0 4rem 0;
-  &:after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 40%;
-    top: 0;
-    background: linear-gradient(0deg,rgba(255, 255, 255, 0) 0,rgba(255, 255, 255, 1));
+`
+
+const Preface = styled.div`
+  padding: 2rem;
+  display: flex;
+  flex-flow: column;
+  text-align: center;
+  p {
+    line-height: 1.5;
+    margin: 0 0 2rem 0;
+    font-size: 1.1em;
+  }
+`
+
+const Open = styled.button`
+  transition: .3s;
+  text-align: center;
+  font-size: 1.1em;
+  font-weight: 600;
+  display: inline-block;
+  margin: 0 auto;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 1em;
+  border-radius: 2px;
+  border: 1px solid ${props => props.theme.colors.tertiary};
+  &:hover {
+    border-color: ${props => props.theme.colors.secondary};
+    background: ${props => props.theme.colors.secondary};
   }
 `
 
@@ -30,6 +51,7 @@ const Form = styled.form`
   align-items: flex-start;
   z-index: 99;
   position: relative;
+  display: none;
   input, textarea {
     font-family: inherit;
     font-size: inherit;
@@ -125,7 +147,7 @@ const Modal = styled.div`
 
 const Button = styled.div`
   background: ${props => props.theme.colors.base};
-  font-size: 1em;
+  font-size: 1.1em;
   display: inline-block;
   margin: 0 auto;
   border: none;
@@ -198,6 +220,12 @@ class Register extends React.Component {
     return (
       <Reveal>
         <Wrapper>
+
+          <Preface>
+            <p>Registration is limited so be sure to reserve your spot today!</p>
+            <Open>Register Now</Open>
+          </Preface>
+
           <Form name="register" onSubmit={this.handleSubmit} data-netlify="true" data-netlify-honeypot="bot" overlay={this.state.showModal} onClick={this.closeModal}>
             <input type="hidden" name="form-name" value="register" />
             <p hidden><label>Don’t fill this out: <input name="bot" onChange={this.handleInputChange} /></label></p>

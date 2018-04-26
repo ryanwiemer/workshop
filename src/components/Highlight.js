@@ -4,7 +4,7 @@ import Img from 'gatsby-image'
 import Reveal from 'react-reveal/Reveal'
 
 const Wrapper = styled.div`
-  margin: 0 auto;
+  margin: 2rem auto 4rem;
   padding: 0 2rem;
   max-width: ${props => props.theme.sizes.maxWidth};
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
@@ -13,32 +13,35 @@ const Wrapper = styled.div`
   }
 `;
 
-
-const Cover = styled.div`
-  svg {
-    background: gray;
-    path {
-      fill: ${props => props.theme.colors.tertiary};
-    }
-  }
-
-
-
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {}
-`;
-
 const Box = styled.div`
   width: 100%;
   text-align: center;
   padding: .5em;
   border-bottom: 1px solid ${props => props.theme.colors.secondary};
+  border-radius: 2px;
   &:last-child {
     border: none;
   }
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
-    flex: 0 1 50%;
+    flex: 0 1 33.333%;
     border: none;
     border-right: 1px solid ${props => props.theme.colors.secondary};
+  }
+  &:hover {
+    svg {
+      transform: scale(1.075);
+      path {
+        fill: ${props => props.theme.colors.highlight};
+      }
+    }
+  }
+  @media (hover: none) {
+    svg {
+      transform: none;
+      path {
+        fill: ${props => props.theme.colors.tertiary};
+      }
+    }
   }
 `;
 
@@ -52,9 +55,30 @@ const Heading = styled.h3`
   }
 `;
 
+const Cover = styled.div`
+  margin: 0 0 1rem 0;
+  svg {
+    transition: .3s;
+    width: 100px;
+    path {
+      transition: .3s;
+      fill: ${props => props.theme.colors.tertiary};
+    }
+    @media screen and (min-width: ${props => props.theme.responsive.small}) {
+      width: 50px;
+    }
+    @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+      width: 75px;
+    }
+  }
+`;
+
+
 const Subheading = styled.h4`
   font-size: 1.1em;
   line-height: 1.4;
+  font-weight: 600;
+  margin: 1rem 0;
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     font-size: 1.25em;
   }
@@ -65,30 +89,48 @@ const Highlight = (props) => {
   return (
     <Reveal>
       <Wrapper>
-
           <Box>
             <Heading>{props.heading1}</Heading>
             <Cover>
-              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24">
-                <path d="M11 6c2.206 0 4 1.794 4 4s-1.794 4-4 4c-2.204 0-3.998-1.794-3.998-4s1.794-4 3.998-4M11 4c-3.314 0-5.998 2.686-5.998 6s2.684 6 5.998 6c3.312 0 6-2.688 6-6 0-3.314-2.688-6-6-6z"></path>
-                <path d="M17 20h-4v-1.23c1.641-0.371 3.146-1.188 4.363-2.406 1.699-1.699 2.637-3.96 2.637-6.363 0-2.067-0.691-4.028-1.968-5.619l0.675-0.673c0.391-0.391 0.391-1.023 0.001-1.415-0.392-0.392-1.024-0.39-1.415-0.001l-2.052 2.049 0.708 0.708c1.322 1.321 2.051 3.080 2.051 4.95s-0.729 3.627-2.051 4.949-3.079 2.051-4.949 2.051-3.627-0.729-4.949-2.051c-0.391-0.391-1.023-0.391-1.414 0-0.391 0.39-0.391 1.023 0 1.414 1.699 1.699 3.959 2.637 6.363 2.637v1h-4c-0.553 0-1 0.447-1 1s0.447 1 1 1h10c0.553 0 1-0.447 1-1s-0.447-1-1-1z"></path>
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <g>
+                	<path d="M10.9,6.6c2,0,3.6,1.7,3.6,3.6s-1.7,3.6-3.6,3.6s-3.6-1.7-3.6-3.6S8.9,6.6,10.9,6.6 M10.9,4.8c-3,0-5.4,2.4-5.4,5.4
+                		s2.4,5.4,5.4,5.4s5.4-2.4,5.4-5.4S13.9,4.8,10.9,4.8z"/>
+                	<path d="M16.3,19.2h-3.6v-1.1c1.5-0.3,2.9-1.1,3.9-2.2c1.5-1.5,2.4-3.6,2.4-5.7c0-1.9-0.6-3.6-1.8-5l0.6-0.6c0.4-0.4,0.4-0.9,0-1.3
+                		s-0.9-0.4-1.3,0l-1.9,1.9l0.6,0.6c1.3,1.1,2,2.8,2,4.4s-0.7,3.3-1.9,4.4s-2.8,1.9-4.4,1.9s-3.3-0.7-4.4-1.9c-0.4-0.4-0.9-0.4-1.3,0
+                		s-0.4,0.9,0,1.3c1.5,1.5,3.6,2.4,5.7,2.4v0.9H7.3c-0.5,0-0.9,0.4-0.9,0.9c0,0.5,0.4,0.9,0.9,0.9h9c0.5,0,0.9-0.4,0.9-0.9
+                		S16.9,19.2,16.3,19.2z"/>
+                </g>
               </svg>
             </Cover>
             <Subheading>{props.subheading1}</Subheading>
-
           </Box>
-
           <Box>
             <Heading>{props.heading2}</Heading>
             <Cover>
-              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 26">
-                <path d="M17 7h-11c-1.654 0-3 1.346-3 3v7c0 1.654 1.346 3 3 3h11c1.654 0 3-1.346 3-3v-7c0-1.654-1.346-3-3-3zM18 17c0 0.552-0.448 1-1 1h-11c-0.552 0-1-0.448-1-1v-4h13v4zM18 11h-13v-1c0-0.552 0.448-1 1-1h11c0.552 0 1 0.448 1 1v1z"></path>
-                <path d="M14 16h2c0.276 0 0.5-0.224 0.5-0.5s-0.224-0.5-0.5-0.5h-2c-0.276 0-0.5 0.224-0.5 0.5s0.224 0.5 0.5 0.5z"></path>
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M19,6.2V6c0-1.7-1.3-3-3-3s-3,1.3-3,3h-2c0-1.7-1.3-3-3-3S5,4.3,5,6v0.2C3.8,6.6,3,7.7,3,9v9c0,1.7,1.3,3,3,3h12
+                	c1.7,0,3-1.3,3-3V9C21,7.7,20.2,6.6,19,6.2z M15,6c0-0.6,0.4-1,1-1c0.6,0,1,0.4,1,1v2c0,0.6-0.4,1-1,1s-1-0.4-1-1V6z M7,6
+                	c0-0.6,0.4-1,1-1s1,0.4,1,1v2c0,0.6-0.4,1-1,1S7,8.6,7,8V6z M19,18c0,0.6-0.4,1-1,1H6c-0.6,0-1-0.4-1-1v-6h14V18z M19,11H5V9
+                	c0-0.6,0.4-1,1-1c0,1.1,0.9,2,2,2s2-0.9,2-2h4c0,1.1,0.9,2,2,2s2-0.9,2-2c0.6,0,1,0.4,1,1V11z"/>
               </svg>
             </Cover>
             <Subheading>{props.subheading2}</Subheading>
           </Box>
-
+          <Box>
+            <Heading>{props.heading3}</Heading>
+            <Cover>
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <g>
+                	<path d="M17.8,5.1H6.1c-1.8,0-3.2,1.4-3.2,3.2v7.5c0,1.8,1.4,3.2,3.2,3.2h11.7c1.8,0,3.2-1.4,3.2-3.2V8.2C21,6.5,19.5,5.1,17.8,5.1
+                		z M18.9,15.8c0,0.6-0.4,1.1-1.1,1.1H6.2c-0.6,0-1.1-0.4-1.1-1.1v-4.2H19 M18.8,9.3H5.1V8.2c0-0.6,0.4-1.1,1.1-1.1h11.7
+                		c0.6,0,1.1,0.4,1.1,1.1L18.8,9.3L18.8,9.3z"/>
+                	<path d="M14.6,14.7h2.1c0.3,0,0.5-0.3,0.5-0.5s-0.2-0.5-0.5-0.5h-2.1c-0.3,0-0.5,0.3-0.5,0.5S14.3,14.7,14.6,14.7z"/>
+                </g>
+              </svg>
+            </Cover>
+            <Subheading>{props.subheading3}</Subheading>
+          </Box>
       </Wrapper>
     </Reveal>
   )

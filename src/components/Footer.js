@@ -2,10 +2,13 @@ import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 import Up from '../components/Up'
+import topography from '../images/topography.png'
 
 const Wrapper = styled.div`
-  margin: -4rem 0 0 0;
+  margin: 0 0 0 0;
   position: relative;
+  background: url(${topography});
+  border-top: 1px solid ${props => props.theme.colors.tertiary};
 `
 
 const List = styled.ul`
@@ -17,7 +20,7 @@ const List = styled.ul`
   justify-content: space-between;
   align-items: center;
   padding: 0 2rem;
-  height: 4rem;
+  height: 6rem;
 `
 
 const Item = styled.li`

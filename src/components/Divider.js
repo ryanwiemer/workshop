@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Img from 'gatsby-image'
 
 const Wrapper = styled.div`
-  margin: 0 0 4rem 0;
+  margin: 0;
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {}
 `;
 

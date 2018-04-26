@@ -90,7 +90,7 @@ const Biography = (props) => {
       <About switch={props.switch}>
 
         <Profile>
-          <Img sizes={props.image.sizes} alt={props.image.title} title={props.image.title} backgroundColor={"#aaaea2"}/>
+          <Img sizes={props.image.sizes} alt={props.image.title} title={props.image.title} backgroundColor={"#aaaea2"} style={{borderRadius:"2px"}}/>
         </Profile>
 
         <Details>

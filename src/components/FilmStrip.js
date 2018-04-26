@@ -1,10 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
-
-const Wrapper = styled.div`
-  padding: 0 0 0 0;
-`
+import Reveal from 'react-reveal/Reveal'
 
 const Background = styled.div`
   position: relative;
@@ -72,20 +69,20 @@ const Film = styled.ul`
 
 const FilmStrip = (props) => {
   return (
-    <Wrapper>
+    <Reveal>
       <Background>
-        <h2>{props.heading}</h2>
-        <Film>
-          {props.images && (
-            props.images.map((image, index) => (
-              <li key={index}>
-                <Img sizes={image.sizes} alt={image.title} title={image.title} backgroundColor={"#aaaea2"} />
-              </li>
-            ))
-          )}
-        </Film>
+      <h2>{props.heading}</h2>
+      <Film>
+        {props.images && (
+          props.images.map((image, index) => (
+            <li key={index}>
+              <Img sizes={image.sizes} alt={image.title} title={image.title} backgroundColor={"#aaaea2"} />
+            </li>
+          ))
+        )}
+      </Film>
     </Background>
-    </Wrapper>
+  </Reveal>
   )
 }
 

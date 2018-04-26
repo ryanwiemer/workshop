@@ -75,10 +75,10 @@ const Modules = (props) => {
             <Highlight
               heading1={module.heading1}
               subheading1={module.subheading1}
-              image1={module.image1}
               heading2={module.heading2}
               subheading2={module.subheading2}
-              image2={module.image2}
+              heading3={module.heading3}
+              subheading3={module.subheading3}
             />
           )}
 

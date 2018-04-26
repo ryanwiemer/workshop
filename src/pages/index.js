@@ -10,6 +10,7 @@ import Footer from '../components/Footer'
 import Nav from '../components/Nav'
 import Container from '../components/Container'
 import { Element, scrollSpy, Events } from 'react-scroll'
+import Reveal from 'react-reveal/Reveal'
 
 const Title = styled.h2`
   text-align: center;
@@ -40,15 +41,12 @@ class IndexPage extends React.Component {
 
           {sections.map(({node: section}) => (
             <Element key={section.id} name={section.slug}>
-              {section.heading && (<Title>{section.heading}</Title>)}
+              {section.heading && (<Reveal><Title>{section.heading}</Title></Reveal>)}
               <Modules modules={section.modules} />
             </Element>
           ))}
 
-          <Element name="register">
-            <Title>Register</Title>
-            <Register/>
-          </Element>
+          <Register/>
 
           <Footer/>
         </Container>
@@ -178,20 +176,10 @@ query Index {
             title
             heading1
             subheading1
-            image1 {
-              title
-              sizes(maxWidth: 800) {
-                ...GatsbyContentfulSizes_withWebp_noBase64
-              }
-            }
             heading2
             subheading2
-            image2 {
-              title
-              sizes(maxWidth: 800) {
-                ...GatsbyContentfulSizes_withWebp_noBase64
-              }
-            }
+            heading3
+            subheading3
           }
           ... on ContentfulDivider {
             title

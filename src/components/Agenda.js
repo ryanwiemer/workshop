@@ -17,8 +17,15 @@ const Card = styled.div`
   margin: 0 0 1rem 0;
   border-radius: 2px;
   width: 100%;
+  transition: .3s;
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     flex: 0 1 32%;
+  }
+  &:hover {
+    transform: translateY(-10px);
+  }
+  @media (hover: none) {
+    transform: none;
   }
 `;
 
