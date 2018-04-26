@@ -5,7 +5,6 @@ import Img from 'gatsby-image'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import Modules from '../components/Modules'
-import Register from '../components/Register'
 import Footer from '../components/Footer'
 import Nav from '../components/Nav'
 import Container from '../components/Container'
@@ -28,6 +27,38 @@ const Title = styled.h2`
   }
 `;
 
+const CTA = styled.div`
+  margin: 4rem 0
+  padding: 2rem;
+  display: flex;
+  flex-flow: column;
+  text-align: center;
+  p {
+    line-height: 1.5;
+    margin: 0 0 2rem 0;
+    font-size: 1.1em;
+  }
+  a {
+    text-decoration: none;
+    transition: .3s;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: 600;
+    display: inline-block;
+    margin: 0 auto;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 1em;
+    border-radius: 2px;
+    border: 1px solid ${props => props.theme.colors.tertiary};
+    &:hover {
+      border-color: ${props => props.theme.colors.secondary};
+      background: ${props => props.theme.colors.secondary};
+    }
+  }
+`
+
 class IndexPage extends React.Component {
 
   render() {
@@ -46,7 +77,10 @@ class IndexPage extends React.Component {
             </Element>
           ))}
 
-          <Register/>
+          <CTA>
+            <p>Registration is limited so be sure to reserve your spot today!</p>
+            <Link to="/register/">Register Now</Link>
+          </CTA>
 
           <Footer/>
         </Container>

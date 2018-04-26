@@ -4,7 +4,7 @@ import Img from 'gatsby-image'
 import Reveal from 'react-reveal/Reveal'
 
 const Wrapper = styled.div`
-  background-color: ${props => props.theme.colors.secondary};
+  background: ${props => props.theme.colors.secondary};
   display: flex;
   align-items: center;
   justify-content: center;

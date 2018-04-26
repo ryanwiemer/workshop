@@ -1,57 +1,35 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Reveal from 'react-reveal/Reveal'
 import 'whatwg-fetch' // Fetch Polyfill
+import Slide from 'react-reveal/Slide';
+import Link from 'gatsby-link'
+import topography from '../images/topography.png'
 
 const Wrapper = styled.div`
-  position: relative;
-  padding: 0 0 4rem 0;
-`
-
-const Preface = styled.div`
-  padding: 2rem;
+  background: ${props => props.theme.colors.secondary};
+  background: url(${topography});
   display: flex;
-  flex-flow: column;
-  text-align: center;
-  p {
-    line-height: 1.5;
-    margin: 0 0 2rem 0;
-    font-size: 1.1em;
-  }
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 2rem;
+  min-height: 100vh;
 `
 
-const Open = styled.button`
-  transition: .3s;
-  text-align: center;
-  font-size: 1.1em;
-  font-weight: 600;
-  display: inline-block;
-  margin: 0 auto;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 1em;
+const ContactForm = styled.form`
+  background: white;
   border-radius: 2px;
-  border: 1px solid ${props => props.theme.colors.tertiary};
-  &:hover {
-    border-color: ${props => props.theme.colors.secondary};
-    background: ${props => props.theme.colors.secondary};
-  }
-`
-
-const Form = styled.form`
-  font-size: 1.1em;
+  padding: 2rem;
   max-width: 800px;
-  margin: 0 auto 0;
-  padding: 0 2rem 2rem 2rem;
+  border: 1px solid ${props => props.theme.colors.tertiary};
+  font-size: 1.1em;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: flex-start;
   z-index: 99;
   position: relative;
-  display: none;
   input, textarea {
     font-family: inherit;
     font-size: inherit;
@@ -72,34 +50,26 @@ const Form = styled.form`
     &:-ms-input-placeholder {color: gray;}
     &:-moz-placeholder {color: gray;}
   }
-  &:before {
-    content: '';
-    background: black;
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    transition: .2s all;
-    opacity: ${props => props.overlay ? '.8' : '0'};
-    visibility: ${props => props.overlay ? 'visible' : 'hidden'};
-  }
+`
+
+const Preface = styled.p`
+  line-height: 1.5;
+  margin: 0 0 2rem 0;
 `
 
 const Name = styled.input`
-  margin: 0 0 1em 0;
+  margin: 0 0 1rem 0;
   width: 100%;
-  @media (min-width: ${props => props.theme.responsive.small}) {
-    width: 49%;
+  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+    flex: 0 1 49%;
   }
 `
 
 const Email = styled.input`
-  margin: 0 0 1em 0;
+  margin: 0 0 1rem 0;
   width: 100%;
-  @media (min-width: ${props => props.theme.responsive.small}) {
-    width: 49%;
+  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+    flex: 0 1 49%;
   }
 `
 
@@ -118,50 +88,11 @@ const Submit = styled.input`
   cursor: pointer;
 `
 
-const Modal = styled.div`
-  background: white;
-  padding: 2em;
-  border-radius: 2px;
-  position: fixed;
-  min-width: 75%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin: 0 auto;
-  z-index: 99;
-  display: flex;
-  flex-flow: column;
-  align-items: flex-start;
-  transition: .2s all;
-  opacity: ${props => props.visible ? '1' : '0'};
-  visibility: ${props => props.visible ? 'visible' : 'hidden'};
-  @media screen and (min-width: ${props => props.theme.responsive.small}) {
-    min-width: inherit;
-    max-width: 400px;
-  }
-  p {
-    line-height: 1.6;
-    margin: 0 0 2em 0;
-  }
-`
-
-const Button = styled.div`
-  background: ${props => props.theme.colors.base};
-  font-size: 1.1em;
+const Close = styled(Link)`
+  font-weight: 600;
   display: inline-block;
-  margin: 0 auto;
-  border: none;
- 	outline: none;
-  cursor: pointer;
-  color: white;
-  padding: 1em;
-  border-radius: 2px;
-  text-decoration: none;
-  transition: .2s;
-  z-index: 99;
-  &:focus {
-    outline: none;
-  }
+  margin: 0 0 1rem 0;
+  align-self: flex-end;
 `
 
 const encode = (data) => {
@@ -170,7 +101,7 @@ const encode = (data) => {
    .join("&");
 }
 
-class Register extends React.Component {
+class Form extends React.Component {
 
   constructor (props) {
     super(props)
@@ -207,7 +138,7 @@ class Register extends React.Component {
       name: '',
       email: '',
       message:'',
-      showModal: true
+      showModal: false
     });
   }
 
@@ -215,18 +146,18 @@ class Register extends React.Component {
     this.setState({ showModal: false });
   }
 
+  showModal = () => {
+    this.setState({ showModal: true });
+  }
+
   render() {
 
     return (
-      <Reveal>
-        <Wrapper>
-
-          <Preface>
-            <p>Registration is limited so be sure to reserve your spot today!</p>
-            <Open>Register Now</Open>
-          </Preface>
-
-          <Form name="register" onSubmit={this.handleSubmit} data-netlify="true" data-netlify-honeypot="bot" overlay={this.state.showModal} onClick={this.closeModal}>
+      <Wrapper>
+        <Slide bottom>
+          <ContactForm name="register" onSubmit={this.handleSubmit} data-netlify="true" data-netlify-honeypot="bot">
+            <Close to="/">Go Back</Close>
+            <Preface>In pharetra fermentum dolor a dapibus. Maecenas posuere tincidunt nulla non volutpat. Aenean non quam magna. Nam eget mollis nulla. Interdum et malesuada.</Preface>
             <input type="hidden" name="form-name" value="register" />
             <p hidden><label>Don’t fill this out: <input name="bot" onChange={this.handleInputChange} /></label></p>
 
@@ -234,20 +165,11 @@ class Register extends React.Component {
             <Email name="email" type="email" placeholder="Email" value={this.state.email} onChange={this.handleInputChange} required/>
             <Message name="message" type="text" placeholder="Message" value={this.state.message} onChange={this.handleInputChange} required/>
             <Submit name="submit" type="submit" value="Send" />
-
-            <Modal visible={this.state.showModal}>
-              <p>Thank you for reaching out. We will get back to you as soon as possible.</p>
-              <Button onClick={this.closeModal}>Okay</Button>
-            </Modal>
-          </Form>
-        </Wrapper>
-      </Reveal>
+          </ContactForm>
+        </Slide>
+      </Wrapper>
     )
   }
 }
 
-Register.propTypes = {
-  data: PropTypes.object,
-}
-
-export default Register
+export default Form

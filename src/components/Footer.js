@@ -5,8 +5,6 @@ import Up from '../components/Up'
 import topography from '../images/topography.png'
 
 const Wrapper = styled.div`
-  margin: 0 0 0 0;
-  position: relative;
   background: url(${topography});
   border-top: 1px solid ${props => props.theme.colors.tertiary};
 `

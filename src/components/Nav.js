@@ -11,7 +11,6 @@ const Wrapper = styled.header`
     top: 0;
     left: 0;
     display: block;
-    z-index: 99;
     width: 100vh;
     transform-origin: left top;
     transform: rotate(-90deg) translateX(-100%);

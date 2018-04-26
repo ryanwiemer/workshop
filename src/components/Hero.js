@@ -58,7 +58,6 @@ const Hero = (props) => {
   return (
     <Wrapper className="hero">
       <Plx
-         className='MyAwesomeParallax'
          parallaxData={[{
           start: 0,
           duration: '.hero',
