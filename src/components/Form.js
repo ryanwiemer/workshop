@@ -211,7 +211,7 @@ class Form extends React.Component {
         <Slide bottom duration={750}>
           <Slide bottom when={!this.state.success} collapse duration={750}>
             <ContactForm name="register" onSubmit={this.handleSubmit} data-netlify="true" data-netlify-honeypot="bot">
-              <Close to="/#register">Go Back</Close>
+              <Close to="/">Go Back</Close>
               <Preface>In pharetra fermentum dolor a dapibus. Maecenas posuere tincidunt nulla non volutpat. Aenean non quam magna. Nam eget mollis nulla. Interdum et malesuada.</Preface>
               <input type="hidden" name="form-name" value="register" />
               <p hidden><label>Don’t fill this out: <input name="bot" onChange={this.handleInputChange} /></label></p>
