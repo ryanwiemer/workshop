@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 import Plx from 'react-plx'
+import Helmet from 'react-helmet'
 
 const Wrapper = styled.div`
   position: relative;
@@ -57,6 +58,9 @@ const Logo = styled.div`
 const Hero = (props) => {
   return (
     <Wrapper className="hero">
+      <Helmet>
+        <meta property="og:image" content={props.image.sizes.src}/>
+      </Helmet>
       <Plx
          parallaxData={[{
           start: 0,
@@ -71,8 +75,24 @@ const Hero = (props) => {
         }]}
        >
           <BgImg sizes={props.image.sizes} position={props.position} alt={props.image.title} title={props.image.title} backgroundColor={"#aaaea2"} />
-          {props.logo && (<Logo><Img sizes={props.logo.sizes} alt={props.logo.title} title={props.logo.title} /></Logo>)}
       </Plx>
+      {props.logo && (
+        <Plx
+           parallaxData={[{
+            start: 0,
+            duration: '75vh',
+            properties: [
+              {
+                startValue: 1,
+                endValue: 0,
+                property: 'opacity'
+              }
+            ]
+          }]}
+         >
+        <Logo><Img sizes={props.logo.sizes} alt={props.logo.title} title={props.logo.title} /></Logo>
+        </Plx>
+      )}
     </Wrapper>
   )
 }
