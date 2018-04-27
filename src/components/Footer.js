@@ -2,11 +2,22 @@ import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 import Up from '../components/Up'
-import topography from '../images/topography.png'
+import topography from '../images/topography.svg'
 
 const Wrapper = styled.div`
-  background: url(${topography});
   border-top: 1px solid ${props => props.theme.colors.tertiary};
+  position: relative;
+  &:before {
+    content: '';
+    background: url(${topography});
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: .15;
+    z-index: -1;
+  }
 `
 
 const List = styled.ul`
@@ -27,6 +38,12 @@ const Item = styled.li`
   font-size: 1.1em;
   a {
     margin: 0 1rem 0 0;
+    &:hover {
+      opacity: .75;
+    }
+    @media (hover: none) {
+      opacity: 1;
+    }
   }
 `
 

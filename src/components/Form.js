@@ -2,25 +2,36 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import 'whatwg-fetch' // Fetch Polyfill
-import Slide from 'react-reveal/Slide';
+import {Slide, Reveal} from 'react-reveal';
 import Link from 'gatsby-link'
-import topography from '../images/topography.png'
+import topography from '../images/topography.svg'
 
 const Wrapper = styled.div`
-  background: ${props => props.theme.colors.secondary};
-  background: url(${topography});
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   padding: 2rem;
   min-height: 100vh;
+  overflow: hidden;
+  z-index: 0;
+  &:before {
+    content: '';
+    background-image: url(${topography});
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: .15;
+    z-index: -3;
+  }
 `
 
 const ContactForm = styled.form`
   background: white;
   border-radius: 2px;
-  padding: 2rem;
+  padding: 1rem;
   max-width: 800px;
   border: 1px solid ${props => props.theme.colors.tertiary};
   font-size: 1.1em;
@@ -30,6 +41,9 @@ const ContactForm = styled.form`
   align-items: flex-start;
   z-index: 99;
   position: relative;
+  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+    padding: 2rem;
+  }
   input, textarea {
     font-family: inherit;
     font-size: inherit;
@@ -86,6 +100,13 @@ const Submit = styled.input`
   border: none !important;
   color: white !important;
   cursor: pointer;
+  transition: .3s;
+  &:hover {
+    opacity: .75;
+  }
+  @media (hover: none) {
+    opacity: 1 !important;
+  }
 `
 
 const Close = styled(Link)`
@@ -93,6 +114,46 @@ const Close = styled(Link)`
   display: inline-block;
   margin: 0 0 1rem 0;
   align-self: flex-end;
+  transition: .3s;
+  &:hover {
+    opacity: .75;
+  }
+  @media (hover: none) {
+    opacity: 1 !important;
+  }
+`
+
+const Success = styled(Link)`
+  display: ${props => props.show ? 'block' : 'none'};
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: -1;
+  background: white;
+  border-radius: 2px;
+  border: 1px solid ${props => props.theme.colors.tertiary};
+  text-decoration: none;
+  h2 {
+    font-weight: 600;
+    padding: 1rem;
+    font-size: 1.25em;
+    background: ${props => props.theme.colors.highlight};
+    color: white;
+    width: 100%;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+      font-size: 1.75em;
+    }
+  }
+  h3 {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin: 2rem 1rem;
+    text-decoration: underline;
+  }
 `
 
 const encode = (data) => {
@@ -109,7 +170,7 @@ class Form extends React.Component {
       name: '',
       email: '',
       message:'',
-      showModal: false
+      success: false
     };
   }
 
@@ -138,35 +199,36 @@ class Form extends React.Component {
       name: '',
       email: '',
       message:'',
-      showModal: false
+      success: true
     });
-  }
-
-  closeModal = () => {
-    this.setState({ showModal: false });
-  }
-
-  showModal = () => {
-    this.setState({ showModal: true });
   }
 
   render() {
 
     return (
       <Wrapper>
-        <Slide bottom>
-          <ContactForm name="register" onSubmit={this.handleSubmit} data-netlify="true" data-netlify-honeypot="bot">
-            <Close to="/">Go Back</Close>
-            <Preface>In pharetra fermentum dolor a dapibus. Maecenas posuere tincidunt nulla non volutpat. Aenean non quam magna. Nam eget mollis nulla. Interdum et malesuada.</Preface>
-            <input type="hidden" name="form-name" value="register" />
-            <p hidden><label>Don’t fill this out: <input name="bot" onChange={this.handleInputChange} /></label></p>
 
-            <Name name="name" type="text" placeholder="Full Name" value={this.state.name} onChange={this.handleInputChange} required/>
-            <Email name="email" type="email" placeholder="Email" value={this.state.email} onChange={this.handleInputChange} required/>
-            <Message name="message" type="text" placeholder="Message" value={this.state.message} onChange={this.handleInputChange} required/>
-            <Submit name="submit" type="submit" value="Send" />
-          </ContactForm>
+        <Slide bottom duration={750}>
+          <Slide bottom when={!this.state.success} collapse duration={750}>
+            <ContactForm name="register" onSubmit={this.handleSubmit} data-netlify="true" data-netlify-honeypot="bot">
+              <Close to="/">Go Back</Close>
+              <Preface>In pharetra fermentum dolor a dapibus. Maecenas posuere tincidunt nulla non volutpat. Aenean non quam magna. Nam eget mollis nulla. Interdum et malesuada.</Preface>
+              <input type="hidden" name="form-name" value="register" />
+              <p hidden><label>Don’t fill this out: <input name="bot" onChange={this.handleInputChange} /></label></p>
+
+              <Name name="name" type="text" placeholder="Full Name" value={this.state.name} onChange={this.handleInputChange} required/>
+              <Email name="email" type="email" placeholder="Email" value={this.state.email} onChange={this.handleInputChange} required/>
+              <Message name="message" type="text" placeholder="Message" value={this.state.message} onChange={this.handleInputChange} required/>
+              <Submit name="submit" type="submit" value="Send" />
+            </ContactForm>
+          </Slide>
         </Slide>
+
+        <Success show={this.state.success} to="/">
+          <h2>Message Received</h2>
+          <h3>Return Home</h3>
+        </Success>
+
       </Wrapper>
     )
   }

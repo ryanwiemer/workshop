@@ -51,10 +51,13 @@ const CTA = styled.div`
     cursor: pointer;
     padding: 1em;
     border-radius: 2px;
-    border: 1px solid ${props => props.theme.colors.tertiary};
+    background: ${props => props.theme.colors.base};
+    color: white;
     &:hover {
-      border-color: ${props => props.theme.colors.secondary};
-      background: ${props => props.theme.colors.secondary};
+      opacity: .75;
+    }
+    @media (hover: none) {
+      opacity: 1;
     }
   }
 `
