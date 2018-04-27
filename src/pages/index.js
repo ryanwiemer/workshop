@@ -57,7 +57,7 @@ const CTA = styled.div`
       opacity: .75;
     }
     @media (hover: none) {
-      opacity: 1;
+      opacity: 1 !important;
     }
   }
 `
