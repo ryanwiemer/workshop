@@ -28,7 +28,6 @@ const Modules = (props) => {
           {module.__typename == "ContentfulIntro" && (
             <div>
             <Intro
-              image={module.image}
               heading={module.heading}
               text={module.text}
             />

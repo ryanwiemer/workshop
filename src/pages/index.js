@@ -117,7 +117,6 @@ query Index {
           __typename
           ... on ContentfulHero {
             title
-            heading
             image {
               title
               sizes(maxWidth: 1800) {
@@ -130,21 +129,10 @@ query Index {
                 ...GatsbyContentfulSizes_withWebp_noBase64
               }
             }
-            links {
-              title
-              id
-              slug
-            }
           }
           ... on ContentfulIntro {
             title
             heading
-            image {
-              title
-              sizes(maxWidth: 1800) {
-                ...GatsbyContentfulSizes_withWebp_noBase64
-              }
-            }
             text {
               childMarkdownRemark {
                 html
