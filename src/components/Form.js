@@ -10,11 +10,12 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
   padding: 2rem;
-  min-height: 100vh;
-  overflow: hidden;
   z-index: 0;
+  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+    min-height: 100vh;
+    overflow: hidden;
+  }
   &:before {
     content: '';
     background-image: url(${topography});
@@ -44,7 +45,7 @@ const ContactForm = styled.form`
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
     padding: 2rem;
   }
-  input, textarea {
+  input[type=text], input[type=email], input[type=submit], textarea {
     font-family: inherit;
     font-size: inherit;
    	background: none;
@@ -74,6 +75,7 @@ const Preface = styled.p`
 const Name = styled.input`
   margin: 0 0 1rem 0;
   width: 100%;
+  flex: 0 1 100%;
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
     flex: 0 1 49%;
   }
@@ -82,17 +84,53 @@ const Name = styled.input`
 const Email = styled.input`
   margin: 0 0 1rem 0;
   width: 100%;
+  flex: 0 1 100%;
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
     flex: 0 1 49%;
   }
 `
 
-const Message = styled.textarea`
+const Portfolio = styled.input`
+  margin: 0 0 1rem 0;
+  width: 100%;
+  flex: 0 1 100%;
+  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+    flex: 0 1 49%;
+  }
+`
+
+const Experience = styled.input`
+  margin: 0 0 1rem 0;
+  width: 100%;
+  flex: 0 1 100%;
+  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+    flex: 0 1 49%;
+  }
+`
+
+const Learning = styled.textarea`
+  width: 100%;
+  flex: 0 1 100%;
+  margin: 0 0 1em 0;
+  line-height: 1.6;
+  min-height: 250px;
+  resize: vertical;
+`
+
+const Questions = styled.textarea`
   width: 100%;
   margin: 0 0 1em 0;
   line-height: 1.6;
   min-height: 250px;
   resize: vertical;
+`
+
+const Dogs = styled.div`
+  margin: 0 0 1rem 0;
+  width: 100%;
+  span, label {
+    margin: 0 1rem 0 0;
+  }
 `
 
 const Submit = styled.input`
@@ -169,7 +207,10 @@ class Form extends React.Component {
     this.state = {
       name: '',
       email: '',
-      message:'',
+      portfolio: '',
+      experience: '',
+      questions: '',
+      dogs: '',
       success: false
     };
   }
@@ -198,7 +239,10 @@ class Form extends React.Component {
     this.setState({
       name: '',
       email: '',
-      message:'',
+      portfolio: '',
+      experience: '',
+      questions: '',
+      dogs: '',
       success: true
     });
   }
@@ -212,13 +256,22 @@ class Form extends React.Component {
           <Slide bottom when={!this.state.success} collapse duration={750}>
             <ContactForm name="register" onSubmit={this.handleSubmit} data-netlify="true" data-netlify-honeypot="bot">
               <Close to="/">Go Back</Close>
-              <Preface>In pharetra fermentum dolor a dapibus. Maecenas posuere tincidunt nulla non volutpat. Aenean non quam magna. Nam eget mollis nulla. Interdum et malesuada.</Preface>
+              <Preface>To register or find out more about the workshop please fill out the form below. We will email you additional registration paperwork and instructions for how to pay the deposit to reserve your spot.</Preface>
               <input type="hidden" name="form-name" value="register" />
               <p hidden><label>Don’t fill this out: <input name="bot" onChange={this.handleInputChange} /></label></p>
-
               <Name name="name" type="text" placeholder="Full Name" value={this.state.name} onChange={this.handleInputChange} required/>
               <Email name="email" type="email" placeholder="Email" value={this.state.email} onChange={this.handleInputChange} required/>
-              <Message name="message" type="text" placeholder="Message" value={this.state.message} onChange={this.handleInputChange} required/>
+              <Portfolio name="portfolio" type="text" placeholder="Portfolio or @Instgaram" value={this.state.portfolio} onChange={this.handleInputChange} required/>
+              <Experience name="experience" type="text" placeholder="Years in business?" value={this.state.experience} onChange={this.handleInputChange} required/>
+              <Learning name="learning" type="text" placeholder="What do you hope to learn?" value={this.state.learning} onChange={this.handleInputChange} required/>
+              <Questions name="questions" type="text" placeholder="Questions or comments? (Optional)" value={this.state.message} onChange={this.handleInputChange} />
+
+              <Dogs>
+                <span>Do you like dogs?</span>
+                <label>Yes<input name="dogs" type="radio" value="yes" checked={this.state.dogs === "yes"} onChange={this.handleInputChange} /></label>
+                <label>No <input name="dogs" type="radio" value="no" checked={this.state.dogs === "no"} onChange={this.handleInputChange} /></label>
+              </Dogs>
+
               <Submit name="submit" type="submit" value="Send" />
             </ContactForm>
           </Slide>
