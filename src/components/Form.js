@@ -11,7 +11,7 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: 2rem;
+  padding: 1rem;
   min-height: 100vh;
   overflow: hidden;
   z-index: 0;
@@ -25,6 +25,9 @@ const Wrapper = styled.div`
     bottom: 0;
     opacity: .15;
     z-index: -3;
+  }
+  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+    padding: 2rem;
   }
 `
 
