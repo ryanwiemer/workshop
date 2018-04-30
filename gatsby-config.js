@@ -20,7 +20,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
-       siteUrl: `https://www.ryanwiemer.com`,
+       siteUrl: `https://www.workshop-in-the-woods.com`,
       },
     },
     {
@@ -33,7 +33,7 @@ module.exports = {
     {
     resolve: 'gatsby-plugin-nprogress',
       options: {
-        color: '#FFFFFF',
+        color: '#4a4a4a',
         showSpinner: false,
         },
       },

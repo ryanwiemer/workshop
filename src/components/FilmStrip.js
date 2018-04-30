@@ -13,7 +13,7 @@ const Background = styled.div`
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, calc(-50% - .5px));
     z-index: 99;
     text-shadow: 1px 1px 0px rgba(0,0,0,0.2);
     text-align: center;
@@ -21,11 +21,10 @@ const Background = styled.div`
     font-size: 2em;
     text-transform: uppercase;
     @media screen and (min-width: ${props => props.theme.responsive.small}) {
-      font-size: 2.25em;
+      font-size: 2.5em;
     }
     @media screen and (min-width: ${props => props.theme.responsive.medium}) {
-      font-size: 5em;
-      font-size: 5vw;
+      font-size: 4em;
     }
   }
 `

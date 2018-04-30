@@ -19,48 +19,12 @@ const Title = styled.h2`
   z-index: 99;
   position: relative;
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
-    font-size: 2.25em;
+    font-size: 2.5em;
   }
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
-    font-size: 5em;
-    font-size: 5vw;
+    font-size: 4em;
   }
 `;
-
-const CTA = styled.div`
-  margin: 4rem 0
-  padding: 2rem;
-  display: flex;
-  flex-flow: column;
-  text-align: center;
-  p {
-    line-height: 1.5;
-    margin: 0 0 2rem 0;
-    font-size: 1.1em;
-  }
-  a {
-    text-decoration: none;
-    transition: .3s;
-    text-align: center;
-    font-size: 1.1em;
-    font-weight: 600;
-    display: inline-block;
-    margin: 0 auto;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 1em;
-    border-radius: 2px;
-    background: ${props => props.theme.colors.base};
-    color: white;
-    &:hover {
-      opacity: .75;
-    }
-    @media (hover: none) {
-      opacity: 1 !important;
-    }
-  }
-`
 
 class IndexPage extends React.Component {
 
@@ -79,11 +43,6 @@ class IndexPage extends React.Component {
               <Modules modules={section.modules} />
             </Element>
           ))}
-
-          <CTA>
-            <p>Registration is limited so be sure to reserve your spot today!</p>
-            <Link to="/register/">Register Now</Link>
-          </CTA>
 
           <Footer/>
         </Container>

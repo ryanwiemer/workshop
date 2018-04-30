@@ -80,7 +80,7 @@ injectGlobal`
 
   a {
     text-decoration: underline;
-    color: black;
+    color: #434343;
   }
 
   button {

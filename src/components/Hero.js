@@ -48,10 +48,11 @@ const Logo = styled.div`
   max-width: 350px;
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     width: 50%;
-    max-width: 400px;
+    max-width: 450px;
   }
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  @media screen and (min-width: ${props => props.theme.responsive.large}) {
     width: 50%;
+    max-width: 500px;
   }
 `
 

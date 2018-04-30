@@ -10,12 +10,11 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
   padding: 2rem;
+  min-height: 100vh;
+  overflow: hidden;
   z-index: 0;
-  @media screen and (min-width: ${props => props.theme.responsive.small}) {
-    min-height: 100vh;
-    overflow: hidden;
-  }
   &:before {
     content: '';
     background-image: url(${topography});
@@ -113,16 +112,16 @@ const Learning = styled.textarea`
   flex: 0 1 100%;
   margin: 0 0 1em 0;
   line-height: 1.6;
-  min-height: 250px;
-  resize: vertical;
+  min-height: 150px;
+  resize: none;
 `
 
 const Questions = styled.textarea`
   width: 100%;
   margin: 0 0 1em 0;
   line-height: 1.6;
-  min-height: 250px;
-  resize: vertical;
+  min-height: 150px;
+  resize: none;
 `
 
 const Dogs = styled.div`
@@ -166,7 +165,7 @@ const Success = styled(Link)`
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, calc(-50% - .5px));
   text-align: center;
   z-index: -1;
   background: white;
@@ -264,14 +263,12 @@ class Form extends React.Component {
               <Portfolio name="portfolio" type="text" placeholder="Portfolio or @Instgaram" value={this.state.portfolio} onChange={this.handleInputChange} required/>
               <Experience name="experience" type="text" placeholder="Years in business?" value={this.state.experience} onChange={this.handleInputChange} required/>
               <Learning name="learning" type="text" placeholder="What do you hope to learn?" value={this.state.learning} onChange={this.handleInputChange} required/>
-              <Questions name="questions" type="text" placeholder="Questions or comments? (Optional)" value={this.state.message} onChange={this.handleInputChange} />
-
+              <Questions name="questions" type="text" placeholder="Questions or comments? (optional)" value={this.state.questions} onChange={this.handleInputChange}/>
               <Dogs>
                 <span>Do you like dogs?</span>
-                <label>Yes<input name="dogs" type="radio" value="yes" checked={this.state.dogs === "yes"} onChange={this.handleInputChange} /></label>
-                <label>No <input name="dogs" type="radio" value="no" checked={this.state.dogs === "no"} onChange={this.handleInputChange} /></label>
+                <label>Yes<input name="dogs" type="radio" value="yes" checked={this.state.dogs === "yes"} onChange={this.handleInputChange} required/></label>
+                <label>No <input name="dogs" type="radio" value="no" checked={this.state.dogs === "no"} onChange={this.handleInputChange} required/></label>
               </Dogs>
-
               <Submit name="submit" type="submit" value="Send" />
             </ContactForm>
           </Slide>
