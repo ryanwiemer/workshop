@@ -107,7 +107,7 @@ query Index {
             switch
             image {
               title
-              sizes(maxWidth: 800) {
+              sizes(maxWidth: 1000) {
                 ...GatsbyContentfulSizes_withWebp_noBase64
               }
             }
@@ -122,7 +122,7 @@ query Index {
             heading
             images {
               title
-              sizes(maxWidth: 400) {
+              sizes(maxWidth: 800) {
                 ...GatsbyContentfulSizes_withWebp_noBase64
               }
             }
