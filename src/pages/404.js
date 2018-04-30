@@ -34,10 +34,10 @@ const Wrapper = styled.div`
 const Title = styled.h2`
   margin: 0 0 1rem 0;
   font-size: 2em;
-  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+  @media screen and (min-width: 30em) {
     font-size: 2.5em;
   }
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  @media screen and (min-width: 50em) {
     font-size: 4em;
     margin: 0 0 2rem 0;
   }
