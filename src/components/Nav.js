@@ -5,7 +5,7 @@ import { Link, Element, scrollSpy, Events } from 'react-scroll';
 
 const Wrapper = styled.header`
   display: none;
-  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+  @media screen and (min-width: ${props => props.theme.responsive.small}) and (min-height: 450px) {
     background: white;
     position: fixed;
     top: 0;

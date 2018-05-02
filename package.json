@@ -6,7 +6,7 @@
   "author": "Ryan Wiemer <ryan@ryanwiemer.com>",
   "dependencies": {
     "dotenv": "^5.0.1",
-    "gatsby": "^1.9.255",
+    "gatsby": "^1.9.256",
     "gatsby-cli": "^1.1.51",
     "gatsby-image": "^1.0.48",
     "gatsby-link": "^1.6.41",
@@ -18,7 +18,7 @@
     "gatsby-plugin-react-next": "^1.0.11",
     "gatsby-plugin-styled-components": "^2.0.11",
     "gatsby-source-contentful": "^1.3.48",
-    "gatsby-source-filesystem": "^1.5.34",
+    "gatsby-source-filesystem": "^1.5.35",
     "gatsby-transformer-remark": "^1.7.40",
     "react-helmet": "^5.2.0",
     "react-plx": "^1.1.2",

@@ -25,7 +25,7 @@ const Card = styled.div`
     transform: translateY(-10px);
   }
   @media (hover: none) {
-    transform: none;
+    transform: none !important;
   }
 `;
 

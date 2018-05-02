@@ -42,9 +42,9 @@ const Box = styled.div`
   }
   @media (hover: none) {
     svg {
-      transform: none;
+      transform: none !important;
       path {
-        fill: ${props => props.theme.colors.tertiary};
+        fill: ${props => props.theme.colors.tertiary} !important;
       }
     }
   }
