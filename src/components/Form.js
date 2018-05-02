@@ -130,6 +130,9 @@ const Questions = styled.textarea`
 const Dogs = styled.div`
   margin: 0 0 1rem 0;
   width: 100%;
+  input:invalid  {
+    box-shadow: none;
+  }
   span, label {
     margin: 0 1rem 0 0;
   }
