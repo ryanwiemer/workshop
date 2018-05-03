@@ -70,6 +70,7 @@ const ContactForm = styled.form`
 `
 
 const Preface = styled.p`
+  width: 100%;
   line-height: 1.5;
   margin: 0 0 2rem 0;
 `
@@ -261,15 +262,15 @@ class Form extends React.Component {
           <Slide bottom when={!this.state.success} collapse duration={750}>
             <ContactForm name="register" onSubmit={this.handleSubmit} data-netlify="true" data-netlify-honeypot="bot">
               <Close to="/">Go Back</Close>
-              <Preface>To register or find out more about the workshop please fill out the form below. We will email you additional registration paperwork and instructions for how to pay the deposit to reserve your spot.</Preface>
+              <Preface>We want to ensure you’re the right fit for this workshop, so we have a few questions for you!</Preface>
               <input type="hidden" name="form-name" value="register" />
               <p hidden><label>Don’t fill this out: <input name="bot" onChange={this.handleInputChange} /></label></p>
               <Name name="name" type="text" placeholder="Full Name" value={this.state.name} onChange={this.handleInputChange} required/>
               <Email name="email" type="email" placeholder="Email" value={this.state.email} onChange={this.handleInputChange} required/>
               <Portfolio name="portfolio" type="text" placeholder="Portfolio or @Instgaram" value={this.state.portfolio} onChange={this.handleInputChange} required/>
-              <Experience name="experience" type="text" placeholder="Years in business?" value={this.state.experience} onChange={this.handleInputChange} required/>
+              <Experience name="experience" type="text" placeholder="How long have you been shooting?" value={this.state.experience} onChange={this.handleInputChange} required/>
               <Learning name="learning" type="text" placeholder="What do you hope to learn?" value={this.state.learning} onChange={this.handleInputChange} required/>
-              <Questions name="questions" type="text" placeholder="Questions or comments? (optional)" value={this.state.questions} onChange={this.handleInputChange}/>
+              <Questions name="questions" type="text" placeholder="Questions, dietary restrictions or comments? (optional)" value={this.state.questions} onChange={this.handleInputChange}/>
               <Dogs>
                 <span>Do you like dogs?</span>
                 <label>Yes<input name="dogs" type="radio" value="yes" checked={this.state.dogs === "yes"} onChange={this.handleInputChange} required/></label>
