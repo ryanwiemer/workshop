@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import tree from '../images/tree.svg'
 import { Link, Element, scrollSpy, Events } from 'react-scroll';
 
 const Wrapper = styled.header`

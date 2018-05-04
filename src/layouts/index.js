@@ -17,9 +17,9 @@ const TemplateWrapper = ({ children }) => (
         <link rel="icon" href={favicon} />
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
-        <meta name="description" content="A Photogrpahy workshop in Lake Tahoe" />
+        <meta name="description" content="A photography workshop in Lake Tahoe" />
         <meta property="og:title" content="Workshop In The Woods" />
-        <meta property="og:description" content="A Photogrpahy workshop in Lake Tahoe" />
+        <meta property="og:description" content="A photography workshop in Lake Tahoe" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Workshop In The Woods" />
