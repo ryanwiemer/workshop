@@ -1,6 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
 import topography from '../images/topography.svg'
@@ -15,7 +13,7 @@ const Wrapper = styled.div`
   z-index: 0;
   text-align: center;
   font-weight: 600;
-  &:before {
+  &::before {
     content: '';
     background-image: url(${topography});
     position: absolute;
@@ -23,7 +21,7 @@ const Wrapper = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    opacity: .15;
+    opacity: 0.15;
     z-index: -3;
   }
   a {

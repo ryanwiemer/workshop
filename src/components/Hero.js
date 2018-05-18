@@ -23,9 +23,9 @@ const BgImg = styled(Img)`
       object-fit: ${props => props.fit || 'cover'} !important;
       object-position: ${props => props.position || '50% 50%'} !important;
     }
-    &:before {
+    &::before {
       content: '';
-      background: rgba(0,0,0,.25);
+      background: rgba(0, 0, 0, 0.25);
       position: absolute;
       top: 0;
       left: 0;
@@ -56,42 +56,58 @@ const Logo = styled.div`
   }
 `
 
-const Hero = (props) => {
+const Hero = props => {
   return (
     <Wrapper className="hero">
       <Helmet>
-        <meta property="og:image" content={props.image.sizes.src}/>
+        <meta property="og:image" content={props.image.sizes.src} />
       </Helmet>
       <Plx
-         parallaxData={[{
-          start: 0,
-          duration: '.hero',
-          properties: [
-            {
-              startValue: 1,
-              endValue: 1.1,
-              property: 'scale'
-            }
-          ]
-        }]}
-       >
-          <BgImg sizes={props.image.sizes} position={props.position} alt={props.image.title} title={props.image.title} backgroundColor={"#aaaea2"} />
-      </Plx>
-      {props.logo && (
-        <Plx
-           parallaxData={[{
+        parallaxData={[
+          {
             start: 0,
-            duration: '75vh',
+            duration: '.hero',
             properties: [
               {
                 startValue: 1,
-                endValue: 0,
-                property: 'opacity'
-              }
-            ]
-          }]}
-         >
-        <Logo><Img sizes={props.logo.sizes} alt={props.logo.title} title={props.logo.title} /></Logo>
+                endValue: 1.1,
+                property: 'scale',
+              },
+            ],
+          },
+        ]}
+      >
+        <BgImg
+          sizes={props.image.sizes}
+          position={props.position}
+          alt={props.image.title}
+          title={props.image.title}
+          backgroundColor={'#aaaea2'}
+        />
+      </Plx>
+      {props.logo && (
+        <Plx
+          parallaxData={[
+            {
+              start: 0,
+              duration: '75vh',
+              properties: [
+                {
+                  startValue: 1,
+                  endValue: 0,
+                  property: 'opacity',
+                },
+              ],
+            },
+          ]}
+        >
+          <Logo>
+            <Img
+              sizes={props.logo.sizes}
+              alt={props.logo.title}
+              title={props.logo.title}
+            />
+          </Logo>
         </Plx>
       )}
     </Wrapper>

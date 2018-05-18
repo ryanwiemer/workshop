@@ -29,17 +29,14 @@ injectGlobal`
   footer, header, hgroup, menu, nav, section {
     display: block;
   }
-  body {
-    line-height: 1;
-  }
   ol, ul {
     list-style: none;
   }
   blockquote, q {
     quotes: none;
   }
-  blockquote:before, blockquote:after,
-  q:before, q:after {
+  blockquote::before, blockquote::after,
+  q::before, q::after {
     content: '';
     content: none;
   }
@@ -51,11 +48,12 @@ injectGlobal`
   * {
     box-sizing: border-box;
   }
+
+  /* Site Specific Globals */
   body {
+    line-height: 1;
     font-size: 100%;
-    -webkit-text-size-adjust: 100%;
     font-variant-ligatures: none;
-    -webkit-font-variant-ligatures: none;
     text-rendering: optimizeLegibility;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
@@ -63,11 +61,6 @@ injectGlobal`
     font-weight: 400;
     font-family: 'Fira Sans',  -apple-system, BlinkMacSystemFont, sans-serif;
     font-family: 'Source Sans Pro', sans-serif;
-
-  }
-
-  /* Site Specific Globals */
-  body {
     background: white;
     color: #434343;
   }
@@ -104,5 +97,4 @@ injectGlobal`
   #nprogress .bar {
     height: 4px !important;
   }
-
-`;
+`

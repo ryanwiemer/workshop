@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import styled from 'styled-components'
 import Up from '../components/Up'
 import topography from '../images/topography.svg'
@@ -7,7 +6,7 @@ import topography from '../images/topography.svg'
 const Wrapper = styled.div`
   border-top: 1px solid ${props => props.theme.colors.tertiary};
   position: relative;
-  &:before {
+  &::before {
     content: '';
     background: url(${topography});
     position: absolute;
@@ -15,7 +14,7 @@ const Wrapper = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    opacity: .15;
+    opacity: 0.15;
     z-index: -1;
   }
 `
@@ -39,7 +38,7 @@ const Item = styled.li`
   a {
     margin: 0 1rem 0 0;
     &:hover {
-      opacity: .75;
+      opacity: 0.75;
     }
     @media (hover: none) {
       opacity: 1 !important;
@@ -47,13 +46,25 @@ const Item = styled.li`
   }
 `
 
-const Footer = (props) => (
+const Footer = props => (
   <Wrapper>
     <List>
       <Item>
-        <a href="https://www.contentful.com/" rel="nofollow" target="_blank"><img src="https://images.ctfassets.net/fo9twyrwpveg/44baP9Gtm8qE2Umm8CQwQk/c43325463d1cb5db2ef97fca0788ea55/PoweredByContentful_LightBackground.svg" style={{width:"100px"}} alt="Powered by Contentful" /></a>
+        <a
+          href="https://www.contentful.com/"
+          target="_blank"
+          rel="nofollow noopener noreferrer"
+        >
+          <img
+            src="https://images.ctfassets.net/fo9twyrwpveg/44baP9Gtm8qE2Umm8CQwQk/c43325463d1cb5db2ef97fca0788ea55/PoweredByContentful_LightBackground.svg"
+            style={{ width: '100px' }}
+            alt="Powered by Contentful"
+          />
+        </a>
       </Item>
-      <Item><Up/></Item>
+      <Item>
+        <Up />
+      </Item>
     </List>
   </Wrapper>
 )

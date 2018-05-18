@@ -14,13 +14,16 @@ const Text = styled.div`
       margin: 0;
     }
   }
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {}
-`;
+`
 
-const Body = (props) => {
+const Body = props => {
   return (
     <Reveal>
-      <Text dangerouslySetInnerHTML={{ __html: props.text.childMarkdownRemark.html }}/>
+      <Text
+        dangerouslySetInnerHTML={{
+          __html: props.text.childMarkdownRemark.html,
+        }}
+      />
     </Reveal>
   )
 }

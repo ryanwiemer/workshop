@@ -1,7 +1,4 @@
 import React from 'react'
-import Link from 'gatsby-link'
-import styled from 'styled-components'
-import Img from 'gatsby-image'
 import Hero from './Hero'
 import Intro from './Intro'
 import Biography from './Biography'
@@ -11,13 +8,12 @@ import Agenda from './Agenda'
 import Divider from './Divider'
 import Highlight from './Highlight'
 
-const Modules = (props) => {
+const Modules = props => {
   return (
     <ul>
-      {props.modules.map(( module, index ) => (
+      {props.modules.map((module, index) => (
         <li key={index}>
-
-          {module.__typename == "ContentfulHero" && (
+          {module.__typename === 'ContentfulHero' && (
             <Hero
               logo={module.logo}
               image={module.image}
@@ -25,16 +21,13 @@ const Modules = (props) => {
             />
           )}
 
-          {module.__typename == "ContentfulIntro" && (
+          {module.__typename === 'ContentfulIntro' && (
             <div>
-            <Intro
-              heading={module.heading}
-              text={module.text}
-            />
-          </div>
+              <Intro heading={module.heading} text={module.text} />
+            </div>
           )}
 
-          {module.__typename == "ContentfulBiography" && (
+          {module.__typename === 'ContentfulBiography' && (
             <Biography
               name={module.name}
               portfolio={module.portfolio}
@@ -46,20 +39,15 @@ const Modules = (props) => {
             />
           )}
 
-          {module.__typename == "ContentfulFilmStrip" && (
-            <FilmStrip
-              heading={module.heading}
-              images={module.images}
-            />
+          {module.__typename === 'ContentfulFilmStrip' && (
+            <FilmStrip heading={module.heading} images={module.images} />
           )}
 
-          {module.__typename == "ContentfulBody" && (
-            <Body
-              text={module.text}
-            />
+          {module.__typename === 'ContentfulBody' && (
+            <Body text={module.text} />
           )}
 
-          {module.__typename == "ContentfulAgenda" && (
+          {module.__typename === 'ContentfulAgenda' && (
             <Agenda
               heading1={module.heading1}
               text1={module.text1}
@@ -70,7 +58,7 @@ const Modules = (props) => {
             />
           )}
 
-          {module.__typename == "ContentfulHighlight" && (
+          {module.__typename === 'ContentfulHighlight' && (
             <Highlight
               heading1={module.heading1}
               subheading1={module.subheading1}
@@ -81,15 +69,12 @@ const Modules = (props) => {
             />
           )}
 
-          {module.__typename == "ContentfulDivider" && (
-            <Divider
-              image={module.image}
-            />
+          {module.__typename === 'ContentfulDivider' && (
+            <Divider image={module.image} />
           )}
-
         </li>
-       ))}
-     </ul>
+      ))}
+    </ul>
   )
 }
 

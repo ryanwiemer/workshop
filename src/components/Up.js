@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link, Element, scrollSpy, Events } from 'react-scroll';
+import { Link } from 'react-scroll'
 
 const Arrow = styled(Link)`
   color: ${props => props.theme.colors.base};
@@ -10,13 +10,7 @@ const Arrow = styled(Link)`
 `
 
 const Up = () => (
-  <Arrow
-    to="top"
-    spy={true}
-    smooth={true}
-    duration={300}
-    activeClass="active"
-  >
+  <Arrow to="top" spy smooth duration={300} activeClass="active">
     Back to Top
   </Arrow>
 )
