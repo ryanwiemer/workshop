@@ -14,6 +14,11 @@ try {
 }
 
 module.exports = {
+  siteMetadata: {
+    title: 'Workshop In The Woods',
+    siteUrl: 'https://www.workshop-in-the-woods.com',
+    description: 'A photography workshop in beautiful Lake Tahoe',
+  },
   plugins: [
     'gatsby-plugin-react-next',
     'gatsby-plugin-react-helmet',
@@ -28,7 +33,7 @@ module.exports = {
         background_color: '#f7f0eb',
         theme_color: '#fffff',
         display: 'minimal-ui',
-        icon: 'logos/logo-512.png', // This path is relative to the root of the site.
+        icon: 'static/logos/logo-512.png', // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-offline`,
