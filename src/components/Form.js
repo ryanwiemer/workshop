@@ -50,6 +50,7 @@ const ContactForm = styled.form`
   input[type='email'],
   input[type='submit'],
   textarea {
+    appearance: none;
     font-family: inherit;
     font-size: inherit;
     outline: none;
