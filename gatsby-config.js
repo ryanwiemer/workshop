@@ -20,6 +20,19 @@ module.exports = {
     'gatsby-plugin-styled-components',
     'gatsby-transformer-remark',
     {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: 'Workshop In The Woods',
+        short_name: 'Workshop',
+        start_url: '/',
+        background_color: '#f7f0eb',
+        theme_color: '#fffff',
+        display: 'minimal-ui',
+        icon: 'src/images/icon.png', // This path is relative to the root of the site.
+      },
+    },
+    `gatsby-plugin-offline`,
+    {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
         siteUrl: `https://www.workshop-in-the-woods.com`,
