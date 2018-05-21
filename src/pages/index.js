@@ -97,7 +97,7 @@ export const query = graphql`
               switch
               image {
                 title
-                sizes(maxWidth: 600) {
+                sizes(maxWidth: 1000) {
                   ...GatsbyContentfulSizes_withWebp_noBase64
                 }
               }
@@ -112,7 +112,7 @@ export const query = graphql`
               heading
               images {
                 title
-                sizes(maxWidth: 800) {
+                sizes(maxWidth: 600) {
                   ...GatsbyContentfulSizes_withWebp_noBase64
                 }
               }
