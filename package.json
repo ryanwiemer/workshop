@@ -23,7 +23,6 @@
     "gatsby-source-filesystem": "^1.5.36",
     "gatsby-transformer-remark": "^1.7.41",
     "react-helmet": "^5.2.0",
-    "react-plx": "^1.1.2",
     "react-reveal": "^1.2.2",
     "react-scroll": "^1.7.9",
     "styled-components": "3.2.6"
