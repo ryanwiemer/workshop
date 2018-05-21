@@ -12,10 +12,7 @@ const TemplateWrapper = ({ children }) => (
         <title>Workshop In The Woods</title>
         <link rel="icon" href={favicon} />
         <meta charSet="utf-8" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           name="description"
           content="A photography workshop in Lake Tahoe"

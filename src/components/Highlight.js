@@ -88,6 +88,7 @@ const Subheading = styled.h4`
 `
 
 const CTA = styled.div`
+  margin: 0 0 4rem 0;
   padding: 2rem;
   display: flex;
   flex-flow: column;

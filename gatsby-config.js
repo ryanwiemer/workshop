@@ -30,8 +30,8 @@ module.exports = {
         name: 'Workshop In The Woods',
         short_name: 'Workshop',
         start_url: '/',
-        background_color: '#f7f0eb',
-        theme_color: '#fffff',
+        background_color: '#F7F0EB',
+        theme_color: '#FFFFFF',
         display: 'minimal-ui',
         icon: 'static/logos/logo-512.png', // This path is relative to the root of the site.
       },
