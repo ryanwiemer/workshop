@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import 'whatwg-fetch' // Fetch Polyfill
-import Recaptcha from 'react-google-recaptcha'
 import Slide from 'react-reveal/Slide'
 import Link from 'gatsby-link'
 import topography from '../images/topography.svg'
@@ -152,20 +151,17 @@ const Dogs = styled.div`
   }
 `
 
-const StyledRecaptcha = styled(Recaptcha)`
-  padding: 0 0 1em 0;
-  width: 100%;
-`
-
 const Submit = styled.input`
   background: ${props => props.theme.colors.base} !important;
   border: none !important;
   color: white !important;
   cursor: pointer;
   transition: 0.3s;
-  &:disabled {
-    background: gray !important;
-    cursor: not-allowed;
+  &:hover {
+    opacity: 0.75;
+  }
+  @media (hover: none) {
+    opacity: 1 !important;
   }
 `
 
@@ -233,7 +229,6 @@ class Form extends React.Component {
       questions: '',
       dogs: '',
       success: false,
-      disabledSubmit: true,
     }
   }
 
@@ -243,13 +238,6 @@ class Form extends React.Component {
     const name = target.name
     this.setState({
       [name]: value,
-    })
-  }
-
-  handleRecaptcha = value => {
-    this.setState({
-      'g-recaptcha-response': value,
-      disabledSubmit: false,
     })
   }
 
@@ -265,8 +253,6 @@ class Form extends React.Component {
   }
 
   handleSuccess = () => {
-    // eslint-disable-next-line
-    grecaptcha.reset()
     this.setState({
       name: '',
       email: '',
@@ -275,14 +261,10 @@ class Form extends React.Component {
       questions: '',
       dogs: '',
       success: true,
-      disabledSubmit: true,
     })
   }
 
   render() {
-    const RECAPTCHA_KEY =
-      process.env.SITE_RECAPTCHA_KEY ||
-      '6Ld7KFwUAAAAAGD3p0lGYNeVgq7jpA3PT2xib8LI'
     return (
       <Wrapper>
         <Slide bottom duration={750}>
@@ -291,7 +273,6 @@ class Form extends React.Component {
               name="register"
               onSubmit={this.handleSubmit}
               data-netlify="true"
-              data-netlify-recaptcha="true"
               data-netlify-honeypot="bot"
             >
               <Close to="/">Go Back</Close>
@@ -378,16 +359,7 @@ class Form extends React.Component {
                   />
                 </label>
               </Dogs>
-              <StyledRecaptcha
-                sitekey={RECAPTCHA_KEY}
-                onChange={this.handleRecaptcha}
-              />
-              <Submit
-                disabled={this.state.disabledSubmit}
-                name="submit"
-                type="submit"
-                value="Send"
-              />
+              <Submit name="submit" type="submit" value="Send" />
             </ContactForm>
           </Slide>
         </Slide>
