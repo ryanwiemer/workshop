@@ -1,11 +1,10 @@
 {
   "name": "workshop",
   "description": "Workshop In The Woods - A photography workshop in beautiful Lake Tahoe",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "repository": "https://github.com/ryanwiemer/workshop",
   "author": "Ryan Wiemer <ryan@ryanwiemer.com>",
   "dependencies": {
-    "dotenv": "^5.0.1",
     "gatsby": "^1.9.261",
     "gatsby-cli": "^1.1.52",
     "gatsby-image": "^1.0.51",
